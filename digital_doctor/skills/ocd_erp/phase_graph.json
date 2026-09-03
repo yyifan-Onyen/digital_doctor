@@ -1,0 +1,102 @@
+{
+  "required_prerequisite_slugs": ["assessment", "formulation", "buy_in"],
+  "phases": [
+    {
+      "phase_id": 1,
+      "slug": "assessment",
+      "title": "Assessment",
+      "description": "Clarify symptom pattern, compulsions, triggers, impairment, and immediate fit for an ERP workflow.",
+      "goals": [
+        "Identify the patient's current obsessional theme and main rituals.",
+        "Clarify recent triggers, distress pattern, and functional impact.",
+        "Surface issues that may need a different level of care or human review."
+      ],
+      "exit_criteria": [
+        "The clinician can summarize the OCD problem in concrete behavioral terms.",
+        "The immediate session target is clear enough to move into formulation."
+      ],
+      "legacy_ids": []
+    },
+    {
+      "phase_id": 2,
+      "slug": "formulation",
+      "title": "Formulation",
+      "description": "Organize the case into obsession, trigger, feared consequence, rituals, avoidance, and maintaining factors.",
+      "goals": [
+        "Translate the dialogue into a structured OCD formulation.",
+        "Name the learning target instead of only describing symptoms.",
+        "Highlight reassurance seeking, accommodation, and stuck points when present."
+      ],
+      "exit_criteria": [
+        "Core formulation fields are populated well enough to guide intervention.",
+        "The next move can be linked to a specific trigger-fear-ritual loop."
+      ],
+      "legacy_ids": []
+    },
+    {
+      "phase_id": 3,
+      "slug": "buy_in",
+      "title": "ERP Buy-In",
+      "description": "Build a shared rationale for ERP and set expectations around uncertainty and response prevention.",
+      "goals": [
+        "Explain why learning, not immediate anxiety reduction, is the target.",
+        "Secure enough willingness to try ERP-consistent work."
+      ],
+      "exit_criteria": ["The patient shows at least tentative understanding or willingness to try ERP."],
+      "legacy_ids": [1, 9]
+    },
+    {
+      "phase_id": 4,
+      "slug": "hierarchy",
+      "title": "Exposure Hierarchy",
+      "description": "Choose a concrete, graded target instead of jumping straight to peak fear.",
+      "goals": [
+        "Select one workable trigger or experiment for the next step.",
+        "Scale difficulty so the patient can approach rather than avoid."
+      ],
+      "exit_criteria": ["A concrete exposure target or graded homework step is agreed on."],
+      "legacy_ids": [3]
+    },
+    {
+      "phase_id": 5,
+      "slug": "exposure",
+      "title": "Exposure and Response Prevention",
+      "description": "Carry out or coach a specific exposure while blocking rituals and checking feared outcomes against what happened.",
+      "goals": [
+        "Coach a specific approach behavior or review a recent exposure.",
+        "Block reassurance, escape, washing, checking, or other rituals.",
+        "Compare feared outcomes with actual outcomes."
+      ],
+      "exit_criteria": [
+        "The turn contains an ERP-consistent action or review of one.",
+        "The response prevention target is explicit."
+      ],
+      "legacy_ids": [2, 4, 5, 6, 8, 9, 10]
+    },
+    {
+      "phase_id": 6,
+      "slug": "homework_review",
+      "title": "Homework Review and Generalization",
+      "description": "Review what happened between sessions, reinforce wins, and adjust for adherence barriers.",
+      "goals": [
+        "Review whether the patient practiced independently.",
+        "Extract wins, barriers, and next-step adjustments.",
+        "Support generalization outside the session."
+      ],
+      "exit_criteria": ["There is a clear read on homework adherence and what to adjust next."],
+      "legacy_ids": [7, 10]
+    },
+    {
+      "phase_id": 7,
+      "slug": "relapse_prevention",
+      "title": "Relapse Prevention",
+      "description": "Consolidate the self-directed plan, normalize lapses, and prepare for future spikes without ritualizing.",
+      "goals": [
+        "Reinforce self-directed ERP after setbacks.",
+        "Frame lapses as signals to resume practice, not proof of failure."
+      ],
+      "exit_criteria": ["The patient leaves with a maintenance frame for future symptoms."],
+      "legacy_ids": [11]
+    }
+  ]
+}

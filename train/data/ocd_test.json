@@ -1,0 +1,2492 @@
+[
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"pleural effusions\", \"location\": \"bilateral\", \"extent\": \"small\", \"polarity\": \"positive\"}, {\"lesion\": \"pneumothorax\", \"location\": null, \"extent\": null, \"polarity\": \"negative\"}]",
+    "output": "Stable bilateral small pleural effusions without pneumothorax."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"RIGHT IJ catheter\", \"location\": \"distal RIGHT innominate vein\", \"extent\": null, \"polarity\": \"positive\"}]",
+    "output": "Devices/Tubes/Lines: The tip of the RIGHT IJ catheter is in the distal RIGHT innominate vein."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"subcutaneous emphysema\", \"location\": \"RIGHT chest wall and neck\", \"extent\": null, \"polarity\": \"positive\"}]",
+    "output": "Bones/Soft Tissues: There is subcutaneous emphysema in the RIGHT chest wall and neck."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"bones\", \"location\": null, \"extent\": \"unchanged\", \"polarity\": \"positive\"}]",
+    "output": "The bones are unchanged."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"pleural effusion\", \"location\": \"pleura\", \"extent\": null, \"polarity\": \"negative\"}, {\"lesion\": \"pneumothorax\", \"location\": \"pleura\", \"extent\": null, \"polarity\": \"negative\"}]",
+    "output": "Pleura: There is no pleural effusion or pneumothorax."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"dilated bowel loops\", \"location\": \"upper abdomen\", \"extent\": null, \"polarity\": \"positive\"}]",
+    "output": "Upper abdomen: There are dilated bowel loops."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"consolidation\", \"location\": null, \"extent\": null, \"polarity\": \"negative\"}]",
+    "output": "IMPRESSION: No evidence of consolidation."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"Swan-Ganz catheter\", \"location\": \"RIGHT ventricular outflow tract\", \"extent\": null, \"polarity\": \"positive\"}]",
+    "output": "The tip of the Swan-Ganz catheter is in the RIGHT ventricular outflow tract."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"pneumothorax\", \"location\": \"pleura\", \"extent\": null, \"polarity\": \"negative\"}]",
+    "output": "Pleura: No pneumothorax."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"bilateral small pleural effusions\", \"location\": \"pleura\", \"extent\": \"stable\", \"polarity\": \"positive\"}]",
+    "output": "Pleura: Stable bilateral small pleural effusions."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"cardiac silhouette\", \"location\": \"heart/mediastinum\", \"extent\": \"within normal limits\", \"polarity\": \"positive\"}]",
+    "output": "Heart/Mediastinum: The cardiac silhouette is within normal limits."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"patchy bibasilar opacities\", \"location\": \"lungs\", \"extent\": null, \"polarity\": \"positive\"}]",
+    "output": "There are patchy bibasilar opacities."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"pneumothorax\", \"location\": \"pleura\", \"extent\": null, \"polarity\": \"negative\"}]",
+    "output": "Pleura: No pneumothorax."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"bones\", \"location\": null, \"extent\": \"unchanged\", \"polarity\": \"positive\"}, {\"lesion\": \"degenerative changes\", \"location\": \"bones/soft tissues\", \"extent\": null, \"polarity\": \"positive\"}]",
+    "output": "Bones/Soft Tissues: The bones are unchanged and there are degenerative changes."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"pleural effusion\", \"location\": \"RIGHT pleura\", \"extent\": \"small\", \"polarity\": \"positive\"}]",
+    "output": "Stable small RIGHT pleural effusion."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"pleural effusion\", \"location\": \"pleura\", \"extent\": null, \"polarity\": \"negative\"}, {\"lesion\": \"pneumothorax\", \"location\": \"pleura\", \"extent\": null, \"polarity\": \"negative\"}]",
+    "output": "Pleura: There is no pleural effusion or pneumothorax."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"bones\", \"location\": null, \"extent\": \"unchanged\", \"polarity\": \"positive\"}]",
+    "output": "Bones/Soft Tissues: The bones are unchanged."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"chest tube\", \"location\": \"LEFT apical\", \"extent\": null, \"polarity\": \"positive\"}]",
+    "output": "Devices/Tubes/Lines: There is a LEFT apical chest tube."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"cardiac silhouette\", \"location\": \"heart/mediastinum\", \"extent\": \"stable\", \"polarity\": \"positive\"}]",
+    "output": "Heart/Mediastinum: Stable cardiac silhouette."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"bones\", \"location\": \"bones/soft tissues\", \"extent\": \"unchanged\", \"polarity\": \"positive\"}]",
+    "output": "Bones/Soft Tissues: The bones are unchanged."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"devices/tubes/lines\", \"location\": null, \"extent\": null, \"polarity\": \"negative\"}]",
+    "output": "Devices/Tubes/Lines: None."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"bones\", \"location\": \"bones/soft tissues\", \"extent\": \"unchanged\", \"polarity\": \"positive\"}]",
+    "output": "Bones/Soft Tissues: The bones are unchanged."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"cardiac silhouette\", \"location\": \"heart/mediastinum\", \"extent\": \"stable enlargement\", \"polarity\": \"positive\"}]",
+    "output": "Stable enlargement of the cardiac silhouette."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"pleural effusion\", \"location\": \"RIGHT pleura\", \"extent\": \"small\", \"polarity\": \"positive\"}]",
+    "output": "Pleura: Stable small RIGHT pleural effusion."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"bilateral lung transplant\", \"location\": \"lungs\", \"extent\": null, \"polarity\": \"positive\"}]",
+    "output": "Lungs: Status post bilateral lung transplant."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"degenerative changes\", \"location\": \"bones\", \"extent\": null, \"polarity\": \"positive\"}]",
+    "output": "Bones/Soft Tissues: There are degenerative changes in the bones."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"enteric tube\", \"location\": \"stomach\", \"extent\": null, \"polarity\": \"positive\"}]",
+    "output": "Devices/Tubes/Lines: Enteric tube reached the stomach, the tip is not included."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"bones\", \"location\": null, \"extent\": \"unchanged\", \"polarity\": \"positive\"}]",
+    "output": "Bones/Soft Tissues: The bones are unchanged."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"tortuous thoracic aorta\", \"location\": null, \"extent\": null, \"polarity\": \"positive\"}]",
+    "output": "There is tortuous thoracic aorta."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"cardiac silhouette\", \"location\": \"heart/mediastinum\", \"extent\": \"stable enlargement\", \"polarity\": \"positive\"}]",
+    "output": "There is stable enlargement of the cardiac silhouette."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"pigtail chest tube\", \"location\": \"LEFT\", \"extent\": null, \"polarity\": \"positive\"}]",
+    "output": "Devices/Tubes/Lines: There is a LEFT pigtail chest tube."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"pigtail chest tube\", \"location\": \"right\", \"extent\": null, \"polarity\": \"positive\"}]",
+    "output": "Devices/Tubes/Lines: There is a RIGHT pigtail chest tube."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"pleural effusion\", \"location\": null, \"extent\": null, \"polarity\": \"negative\"}, {\"lesion\": \"pneumothorax\", \"location\": null, \"extent\": null, \"polarity\": \"negative\"}]",
+    "output": "There is no pleural effusion or pneumothorax."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"RIGHT pleural effusion\", \"location\": \"pleura\", \"extent\": \"small\", \"polarity\": \"positive\"}, {\"lesion\": \"pneumothorax\", \"location\": \"pleura\", \"extent\": null, \"polarity\": \"negative\"}]",
+    "output": "Pleura: New small RIGHT pleural effusion. No pneumothorax."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"cardiac silhouette\", \"location\": \"heart/mediastinum\", \"extent\": \"large and stable\", \"polarity\": \"positive\"}]",
+    "output": "Heart/Mediastinum: Stable large cardiac silhouette."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"devices/tubes/lines\", \"location\": null, \"extent\": null, \"polarity\": \"negative\"}]",
+    "output": "Devices/Tubes/Lines: None."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"focal consolidation\", \"location\": \"lungs\", \"extent\": null, \"polarity\": \"negative\"}, {\"lesion\": \"pulmonary edema\", \"location\": \"lungs\", \"extent\": null, \"polarity\": \"negative\"}]",
+    "output": "Lungs: There is no focal consolidation or pulmonary edema."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"LEFT chest wall ICD\", \"location\": \"LEFT chest wall\", \"extent\": null, \"polarity\": \"positive\"}, {\"lesion\": \"electrode\", \"location\": \"RIGHT ventricle\", \"extent\": null, \"polarity\": \"positive\"}]",
+    "output": "Devices/Tubes/Lines: There is a LEFT chest wall ICD with electrode in the RIGHT ventricle."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"LEFT IJ catheter\", \"location\": \"SVC\", \"extent\": null, \"polarity\": \"positive\"}]",
+    "output": "The tip of the LEFT IJ catheter is in the SVC."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"subsegmental atelectasis\", \"location\": \"LEFT lower lobe\", \"extent\": null, \"polarity\": \"positive\"}]",
+    "output": "IMPRESSION: Subsegmental atelectasis in the LEFT lower lobe."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"PICC tip\", \"location\": \"cavoatrial junction\", \"extent\": null, \"polarity\": \"positive\"}]",
+    "output": "The tip of the RIGHT PICC is near the cavoatrial junction."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"cardiac silhouette\", \"location\": \"heart/mediastinum\", \"extent\": \"stable\", \"polarity\": \"positive\"}]",
+    "output": "Heart/Mediastinum: Stable cardiac silhouette."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"multifocal pneumonia\", \"location\": \"right lung\", \"extent\": \"stable\", \"polarity\": \"positive\"}, {\"lesion\": \"pleural effusion\", \"location\": \"right\", \"extent\": \"stable small\", \"polarity\": \"positive\"}]",
+    "output": "IMPRESSION: Stable multifocal pneumonia in the RIGHT lung and stable small RIGHT pleural effusion."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"Swan-Ganz catheter\", \"location\": \"RIGHT ventricular outflow tract\", \"extent\": null, \"polarity\": \"positive\"}]",
+    "output": "Devices/Tubes/Lines: The tip of the Swan-Ganz catheter is in the RIGHT ventricular outflow tract."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"pleural effusion\", \"location\": \"pleura\", \"extent\": null, \"polarity\": \"negative\"}, {\"lesion\": \"pneumothorax\", \"location\": \"pleura\", \"extent\": null, \"polarity\": \"negative\"}]",
+    "output": "Pleura: No pleural effusion or pneumothorax."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"bilateral pleural effusions\", \"location\": \"pleura\", \"extent\": \"stable\", \"polarity\": \"positive\"}, {\"lesion\": \"pneumothorax\", \"location\": \"pleura\", \"extent\": null, \"polarity\": \"negative\"}]",
+    "output": "Pleura: Stable bilateral pleural effusions without pneumothorax."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"cardiac silhouette\", \"location\": null, \"extent\": \"stable\", \"polarity\": \"positive\"}]",
+    "output": "Stable cardiac silhouette."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"pulmonary edema\", \"location\": null, \"extent\": \"stable\", \"polarity\": \"positive\"}]",
+    "output": "Stable pulmonary edema."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"pulmonary edema\", \"location\": \"lungs\", \"extent\": \"stable\", \"polarity\": \"positive\"}]",
+    "output": "IMPRESSION: Stable interstitial pulmonary edema."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"fibrotic changes\", \"location\": \"lungs\", \"extent\": \"diffuse\", \"polarity\": \"positive\"}, {\"lesion\": \"lung volumes\", \"location\": \"lungs\", \"extent\": \"low\", \"polarity\": \"positive\"}]",
+    "output": "Lungs: There are diffuse fibrotic changes in the lungs and there are low lung volumes."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"radiographic features of Covid 19 infection\", \"location\": null, \"extent\": null, \"polarity\": \"negative\"}]",
+    "output": "IMPRESSION: No definite radiographic features of Covid 19 infection."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"bilateral small pleural effusions\", \"location\": \"pleura\", \"extent\": \"stable\", \"polarity\": \"positive\"}, {\"lesion\": \"pneumothorax\", \"location\": \"pleura\", \"extent\": null, \"polarity\": \"negative\"}]",
+    "output": "Pleura: Stable bilateral small pleural effusions without pneumothorax."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"devices/tubes/lines\", \"location\": null, \"extent\": null, \"polarity\": \"negative\"}]",
+    "output": "Devices/Tubes/Lines: None."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"cardiac silhouette\", \"location\": \"heart/mediastinum\", \"extent\": \"stable\", \"polarity\": \"positive\"}]",
+    "output": "Heart/Mediastinum: Stable cardiac silhouette."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"bones\", \"location\": null, \"extent\": \"unchanged\", \"polarity\": \"positive\"}]",
+    "output": "Bones/Soft Tissues: The bones are unchanged."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"bullet fragment\", \"location\": \"RIGHT chest wall\", \"extent\": null, \"polarity\": \"positive\"}]",
+    "output": "Devices/Tubes/Lines: There is a bullet fragment in the RIGHT chest wall."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"heart\", \"location\": \"heart/mediastinum\", \"extent\": \"normal for age and technique\", \"polarity\": \"positive\"}, {\"lesion\": \"mediastinum\", \"location\": \"heart/mediastinum\", \"extent\": \"normal for age and technique\", \"polarity\": \"positive\"}]",
+    "output": "Heart/Mediastinum: Normal heart and mediastinum for age and technique."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"patchy atelectasis\", \"location\": \"LEFT lower lobe\", \"extent\": \"stable\", \"polarity\": \"positive\"}]",
+    "output": "Stable patchy atelectasis in the LEFT lower lobe."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"tortuous thoracic aorta\", \"location\": \"heart/mediastinum\", \"extent\": null, \"polarity\": \"positive\"}]",
+    "output": "Heart/Mediastinum: There is tortuous thoracic aorta."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"bilateral lung transplant\", \"location\": \"lungs\", \"extent\": null, \"polarity\": \"positive\"}, {\"lesion\": \"patchy bandlike opacities\", \"location\": \"lower lungs\", \"extent\": null, \"polarity\": \"positive\"}]",
+    "output": "Lungs: Status post bilateral lung transplant. There are patchy bandlike opacities in the lower lungs."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"LEFT ventricular assist device\", \"location\": null, \"extent\": null, \"polarity\": \"positive\"}]",
+    "output": "Devices/Tubes/Lines: There is a LEFT ventricular assist device."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"large cardiac silhouette\", \"location\": null, \"extent\": \"stable\", \"polarity\": \"positive\"}]",
+    "output": "IMPRESSION: Stable large cardiac silhouette."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"cardiac silhouette\", \"location\": \"heart/mediastinum\", \"extent\": \"stable enlarged\", \"polarity\": \"positive\"}]",
+    "output": "Heart/Mediastinum: Stable enlarged cardiac silhouette."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"pleural effusion\", \"location\": \"pleura\", \"extent\": null, \"polarity\": \"positive\"}, {\"lesion\": \"pneumothorax\", \"location\": \"pleura\", \"extent\": null, \"polarity\": \"positive\"}]",
+    "output": "Pleura: There is pleural effusion or pneumothorax."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"cardiac silhouette\", \"location\": \"heart/mediastinum\", \"extent\": \"stable, large\", \"polarity\": \"positive\"}]",
+    "output": "Stable large cardiac silhouette."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"bilateral pleural effusions\", \"location\": \"pleura\", \"extent\": \"stable, greater on the RIGHT\", \"polarity\": \"positive\"}]",
+    "output": "Pleura: There are bilateral stable pleural effusions, greater on the RIGHT."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"cardiac silhouette\", \"location\": \"heart/mediastinum\", \"extent\": \"stable\", \"polarity\": \"positive\"}]",
+    "output": "Heart/Mediastinum: Stable cardiac silhouette."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"patchy atelectasis\", \"location\": \"LEFT lower lobe\", \"extent\": \"stable\", \"polarity\": \"positive\"}, {\"lesion\": \"pneumonia\", \"location\": \"LEFT lower lobe\", \"extent\": \"stable\", \"polarity\": \"positive\"}]",
+    "output": "IMPRESSION: Stable patchy atelectasis or pneumonia in the LEFT lower lobe."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"bones\", \"location\": null, \"extent\": \"unchanged\", \"polarity\": \"positive\"}]",
+    "output": "Bones/Soft Tissues: The bones are unchanged."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"pneumothorax\", \"location\": \"RIGHT apical\", \"extent\": \"3 mm\", \"polarity\": \"positive\"}]",
+    "output": "Pleura: There is decreased trace RIGHT apical pneumothorax measuring up to 3 mm."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"enteric tube\", \"location\": \"stomach\", \"extent\": null, \"polarity\": \"positive\"}]",
+    "output": "Enteric tube reached the stomach, the tip is not included."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"degenerative changes\", \"location\": null, \"extent\": null, \"polarity\": \"positive\"}]",
+    "output": "There are degenerative changes."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"LEFT lower lobe segmentectomy\", \"location\": null, \"extent\": null, \"polarity\": \"positive\"}]",
+    "output": "Lungs: Status post LEFT lower lobe segmentectomy."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"chest wall pacemaker\", \"location\": \"left\", \"extent\": null, \"polarity\": \"positive\"}, {\"lesion\": \"electrodes\", \"location\": \"right atrium\", \"extent\": null, \"polarity\": \"positive\"}]",
+    "output": "Devices/Tubes/Lines: There is a LEFT chest wall pacemaker with electrodes in the RIGHT atrium and RIGHT ventricle."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"pleural effusion\", \"location\": \"pleura\", \"extent\": null, \"polarity\": \"negative\"}, {\"lesion\": \"pneumothorax\", \"location\": \"pleura\", \"extent\": null, \"polarity\": \"negative\"}]",
+    "output": "Pleura: There is no pleural effusion or pneumothorax."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"LEFT pleural effusion\", \"location\": null, \"extent\": \"stable\", \"polarity\": \"positive\"}, {\"lesion\": \"partial LEFT lower lobe atelectasis or consolidation\", \"location\": null, \"extent\": \"stable\", \"polarity\": \"positive\"}]",
+    "output": "Stable LEFT pleural effusion and stable partial LEFT lower lobe atelectasis or consolidation."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"sternal wires\", \"location\": \"bones/soft tissues\", \"extent\": \"unchanged\", \"polarity\": \"positive\"}]",
+    "output": "Bones/Soft Tissues: Sternal wires are unchanged."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"LEFT basilar opacity\", \"location\": \"lungs\", \"extent\": \"partially obscuring the LEFT hemidiaphragm\", \"polarity\": \"positive\"}]",
+    "output": "Lungs: Increased LEFT basilar opacity partially obscuring the LEFT hemidiaphragm."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"bones\", \"location\": null, \"extent\": \"unchanged\", \"polarity\": \"positive\"}]",
+    "output": "The bones are unchanged."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"multifocal patchy pneumonia\", \"location\": \"bilateral lower lungs\", \"extent\": \"stable, greater\", \"polarity\": \"positive\"}]",
+    "output": "Stable bilateral multifocal patchy pneumonia, greater in the lower lungs."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"chest tubes\", \"location\": \"LEFT\", \"extent\": null, \"polarity\": \"positive\"}]",
+    "output": "Devices/Tubes/Lines: There are LEFT chest tubes."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"patchy opacities\", \"location\": \"lower lungs\", \"extent\": \"stable\", \"polarity\": \"positive\"}]",
+    "output": "Lungs: There are stable patchy opacities in the lower lungs."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"devices/tubes/lines\", \"location\": null, \"extent\": null, \"polarity\": \"negative\"}]",
+    "output": "Devices/Tubes/Lines: None."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"interstitial pulmonary edema\", \"location\": null, \"extent\": \"stable\", \"polarity\": \"positive\"}, {\"lesion\": \"small bilateral pleural effusions\", \"location\": null, \"extent\": \"stable\", \"polarity\": \"positive\"}]",
+    "output": "Stable interstitial pulmonary edema and stable bilateral small pleural effusions."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"pleural effusion\", \"location\": \"pleura\", \"extent\": null, \"polarity\": \"negative\"}, {\"lesion\": \"pneumothorax\", \"location\": \"pleura\", \"extent\": null, \"polarity\": \"negative\"}]",
+    "output": "There is no pleural effusion or pneumothorax."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"degenerative changes\", \"location\": \"thoracic spine\", \"extent\": null, \"polarity\": \"positive\"}]",
+    "output": "Bones/Soft Tissues: There are degenerative changes in the thoracic spine."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"pleural effusion\", \"location\": null, \"extent\": null, \"polarity\": \"negative\"}, {\"lesion\": \"pneumothorax\", \"location\": null, \"extent\": null, \"polarity\": \"negative\"}]",
+    "output": "There is no pleural effusion or pneumothorax."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"cardiac silhouette\", \"location\": \"heart/mediastinum\", \"extent\": \"within normal limits for age and technique\", \"polarity\": \"positive\"}]",
+    "output": "Heart/Mediastinum: The cardiac silhouette is within normal limits for age and technique."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"LEFT basilar opacity\", \"location\": \"lungs\", \"extent\": \"increased\", \"polarity\": \"positive\"}]",
+    "output": "Lungs: There is increased LEFT basilar opacity."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"postsurgical changes\", \"location\": \"LEFT hemithorax\", \"extent\": \"stable\", \"polarity\": \"positive\"}]",
+    "output": "There are stable postsurgical changes in the LEFT hemithorax."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"LEFT pleural effusion\", \"location\": \"pleura\", \"extent\": \"stable small\", \"polarity\": \"positive\"}]",
+    "output": "Pleura: Stable small LEFT pleural effusion."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"bones\", \"location\": null, \"extent\": \"unchanged\", \"polarity\": \"positive\"}, {\"lesion\": \"degenerative changes\", \"location\": null, \"extent\": null, \"polarity\": \"positive\"}]",
+    "output": "The bones are unchanged and there are degenerative changes."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"LEFT retrocardiac opacity\", \"location\": \"lungs\", \"extent\": \"stable\", \"polarity\": \"positive\"}]",
+    "output": "Lungs: Stable LEFT retrocardiac opacity."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"cardiac silhouette\", \"location\": \"heart/mediastinum\", \"extent\": \"stable\", \"polarity\": \"positive\"}]",
+    "output": "The cardiac silhouette is stable."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"pneumothorax\", \"location\": null, \"extent\": null, \"polarity\": \"negative\"}]",
+    "output": "No pneumothorax."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"cardiac silhouette\", \"location\": \"heart/mediastinum\", \"extent\": \"stable, large\", \"polarity\": \"positive\"}]",
+    "output": "Heart/Mediastinum: Stable large cardiac silhouette."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"bones\", \"location\": null, \"extent\": \"unchanged\", \"polarity\": \"positive\"}]",
+    "output": "The bones are unchanged."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"bones\", \"location\": null, \"extent\": null, \"polarity\": \"negative\"}]",
+    "output": "Bones/Soft Tissues: The bones are unchanged."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"pleural effusion\", \"location\": \"pleura\", \"extent\": null, \"polarity\": \"negative\"}, {\"lesion\": \"pneumothorax\", \"location\": \"pleura\", \"extent\": null, \"polarity\": \"negative\"}]",
+    "output": "Pleura: There is no pleural effusion or pneumothorax."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"patchy opacities\", \"location\": \"LEFT lower lobe\", \"extent\": null, \"polarity\": \"positive\"}]",
+    "output": "Lungs: There are patchy opacities in the LEFT lower lobe."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"PICC line\", \"location\": \"right\", \"extent\": \"near the cavoatrial junction\", \"polarity\": \"positive\"}]",
+    "output": "The tip of the RIGHT PICC line is near the cavoatrial junction."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"devices/tubes/lines\", \"location\": null, \"extent\": null, \"polarity\": \"negative\"}]",
+    "output": "Devices/Tubes/Lines: None."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"cardiac silhouette\", \"location\": \"heart/mediastinum\", \"extent\": \"normal for age and technique\", \"polarity\": \"positive\"}]",
+    "output": "Heart/Mediastinum: The cardiac silhouette is normal for age and technique."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"elevation\", \"location\": \"RIGHT hemidiaphragm\", \"extent\": null, \"polarity\": \"positive\"}]",
+    "output": "Lungs: There is elevation of the RIGHT hemidiaphragm."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"sternotomy wires\", \"location\": \"bones/soft tissues\", \"extent\": \"intact\", \"polarity\": \"positive\"}]",
+    "output": "Bones/Soft Tissues: Sternotomy wires are intact."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"opacification\", \"location\": \"LEFT hemithorax\", \"extent\": \"near-complete\", \"polarity\": \"positive\"}]",
+    "output": "Lungs: There is near-complete opacification of the LEFT hemithorax."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"patchy consolidation\", \"location\": \"lungs\", \"extent\": \"bilateral multifocal\", \"polarity\": \"positive\"}]",
+    "output": "Lungs: Increased bilateral multifocal patchy consolidation."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"patchy opacities\", \"location\": \"LEFT lower lobe\", \"extent\": \"stable\", \"polarity\": \"positive\"}]",
+    "output": "There are stable patchy opacities in the LEFT lower lobe."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"cardiac silhouette\", \"location\": \"heart/mediastinum\", \"extent\": \"large\", \"polarity\": \"positive\"}]",
+    "output": "Stable large cardiac silhouette."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"bone changes\", \"location\": null, \"extent\": \"unchanged\", \"polarity\": \"positive\"}, {\"lesion\": \"degenerative changes\", \"location\": \"bones\", \"extent\": null, \"polarity\": \"positive\"}]",
+    "output": "The bones are unchanged and there are degenerative changes."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"LEFT Port-A-Cath position\", \"location\": \"near the cavoatrial junction\", \"extent\": null, \"polarity\": \"positive\"}]",
+    "output": "The tip of the LEFT Port-A-Cath is near the cavoatrial junction."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"drainage catheter\", \"location\": \"RIGHT axilla\", \"extent\": null, \"polarity\": \"positive\"}]",
+    "output": "There is a drainage catheter in the RIGHT axilla."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"pulmonary edema\", \"location\": \"lungs\", \"extent\": null, \"polarity\": \"negative\"}, {\"lesion\": \"consolidation\", \"location\": \"lungs\", \"extent\": null, \"polarity\": \"negative\"}]",
+    "output": "There is no evidence of pulmonary edema or consolidation."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"patchy opacities\", \"location\": \"LEFT lower lobe\", \"extent\": \"stable\", \"polarity\": \"positive\"}]",
+    "output": "Lungs: There are stable patchy opacities in the LEFT lower lobe."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"pulmonary edema\", \"location\": \"interstitial\", \"extent\": \"stable\", \"polarity\": \"positive\"}]",
+    "output": "Stable interstitial pulmonary edema."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"bones\", \"location\": null, \"extent\": \"unchanged\", \"polarity\": \"positive\"}]",
+    "output": "Bones/Soft Tissues: The bones are unchanged."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"pulmonary edema\", \"location\": \"lungs\", \"extent\": \"stable\", \"polarity\": \"positive\"}]",
+    "output": "Stable pulmonary edema."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"bilateral pleural effusions\", \"location\": \"pleura\", \"extent\": \"stable\", \"polarity\": \"positive\"}, {\"lesion\": \"pneumothorax\", \"location\": \"pleura\", \"extent\": null, \"polarity\": \"negative\"}]",
+    "output": "Pleura: Stable bilateral pleural effusions without pneumothorax."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"patchy consolidation\", \"location\": \"RIGHT lower lung zone\", \"extent\": null, \"polarity\": \"positive\"}, {\"lesion\": \"patchy consolidation\", \"location\": \"RIGHT upper lobe\", \"extent\": null, \"polarity\": \"positive\"}]",
+    "output": "There is patchy consolidation in the RIGHT lower lung zone, RIGHT upper lobe and LEFT lower lobe."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"LEFT Port-A-Cath\", \"location\": \"near the cavoatrial junction\", \"extent\": null, \"polarity\": \"positive\"}]",
+    "output": "The tip of the LEFT Port-A-Cath is near the cavoatrial junction."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"cardiac silhouette\", \"location\": null, \"extent\": \"stable\", \"polarity\": \"positive\"}]",
+    "output": "The cardiac silhouette is stable."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"bilateral pleural effusions\", \"location\": \"pleura\", \"extent\": \"stable\", \"polarity\": \"positive\"}, {\"lesion\": \"RIGHT pleural effusion\", \"location\": \"pleura\", \"extent\": \"extending into the fissures\", \"polarity\": \"positive\"}]",
+    "output": "Pleura: Stable bilateral pleural effusions, the RIGHT pleural effusion extending into the fissures."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"cardiac silhouette\", \"location\": \"heart/mediastinum\", \"extent\": \"stable\", \"polarity\": \"positive\"}, {\"lesion\": \"atherosclerotic calcifications\", \"location\": \"thoracic aorta\", \"extent\": null, \"polarity\": \"positive\"}]",
+    "output": "Heart/Mediastinum: Stable cardiac silhouette. Atherosclerotic calcifications of the thoracic aorta."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"LEFT pleural effusion\", \"location\": \"pleura\", \"extent\": \"small\", \"polarity\": \"positive\"}, {\"lesion\": \"pneumothorax\", \"location\": \"pleura\", \"extent\": null, \"polarity\": \"negative\"}]",
+    "output": "Pleura: There is stable small LEFT pleural effusion. No pneumothorax."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"multifocal asymmetric patchy airspace opacities\", \"location\": \"RIGHT lung\", \"extent\": \"stable\", \"polarity\": \"positive\"}, {\"lesion\": \"multifocal asymmetric patchy airspace opacities\", \"location\": \"LEFT lung base\", \"extent\": \"stable\", \"polarity\": \"positive\"}]",
+    "output": "Lungs: Stable multifocal asymmetric patchy airspace opacities in the RIGHT lung and in the LEFT lung base."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"ET tube\", \"location\": \"above the carina\", \"extent\": \"4.4 cm\", \"polarity\": \"positive\"}]",
+    "output": "ET tube terminates 4.4 cm above the carina."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"bones\", \"location\": null, \"extent\": \"unchanged\", \"polarity\": \"positive\"}, {\"lesion\": \"degenerative changes\", \"location\": \"bones/soft tissues\", \"extent\": null, \"polarity\": \"positive\"}]",
+    "output": "The bones are unchanged and there are degenerative changes."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"patchy opacities\", \"location\": \"lower lung zones\", \"extent\": \"stable\", \"polarity\": \"positive\"}]",
+    "output": "Lungs: Stable patchy opacities in the lower lung zones."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"lung consolidation\", \"location\": \"bilateral lungs\", \"extent\": \"stable\", \"polarity\": \"positive\"}]",
+    "output": "There is stable diffuse bilateral lung consolidation."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"cardiac silhouette\", \"location\": \"heart/mediastinum\", \"extent\": \"stable\", \"polarity\": \"positive\"}]",
+    "output": "Heart/Mediastinum: Stable cardiac silhouette."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"cardiac valve replacements\", \"location\": \"heart/mediastinum\", \"extent\": \"status post\", \"polarity\": \"positive\"}]",
+    "output": "Heart/Mediastinum: Status post cardiac valve replacements."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"cardiac silhouette\", \"location\": \"heart/mediastinum\", \"extent\": \"stable\", \"polarity\": \"positive\"}]",
+    "output": "Heart/Mediastinum: Stable cardiac silhouette."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"lung volumes\", \"location\": \"lungs\", \"extent\": \"low\", \"polarity\": \"positive\"}, {\"lesion\": \"patchy atelectasis\", \"location\": \"bibasilar\", \"extent\": \"new\", \"polarity\": \"positive\"}]",
+    "output": "IMPRESSION: Low lung volumes with new bibasilar patchy atelectasis or pneumonia."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"lung volumes\", \"location\": \"lungs\", \"extent\": \"low\", \"polarity\": \"positive\"}]",
+    "output": "Lungs: The lung volumes are low."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"lung volumes\", \"location\": \"lungs\", \"extent\": \"low\", \"polarity\": \"positive\"}]",
+    "output": "Lungs: The lung volumes are low."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"pneumothorax\", \"location\": null, \"extent\": null, \"polarity\": \"negative\"}]",
+    "output": "No pneumothorax."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"ET tube\", \"location\": \"above the carina\", \"extent\": \"2.2 cm\", \"polarity\": \"positive\"}]",
+    "output": "Devices/Tubes/Lines: ET tube terminates 2.2 cm above the carina."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"devices/tubes/lines\", \"location\": null, \"extent\": null, \"polarity\": \"negative\"}]",
+    "output": "Devices/Tubes/Lines: None."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"lung volumes\", \"location\": \"lungs\", \"extent\": \"low\", \"polarity\": \"positive\"}]",
+    "output": "Lungs: The lung volumes are low."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"pleural effusion\", \"location\": \"LEFT pleura\", \"extent\": \"small, stable\", \"polarity\": \"positive\"}]",
+    "output": "Pleura: Stable small LEFT pleural effusion."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"avascular necrosis\", \"location\": \"bilateral humeral heads\", \"extent\": null, \"polarity\": \"positive\"}, {\"lesion\": \"calcified loose bodies\", \"location\": \"bilateral\", \"extent\": \"multiple\", \"polarity\": \"positive\"}]",
+    "output": "Bones/Soft Tissues: Avascular necrosis bilateral humeral heads multiple bilateral calcified loose bodies are unchanged."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"cardiac silhouette\", \"location\": \"heart/mediastinum\", \"extent\": \"stable\", \"polarity\": \"positive\"}]",
+    "output": "Heart/Mediastinum: Stable cardiac silhouette."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"cardiac silhouette\", \"location\": \"heart/mediastinum\", \"extent\": \"large\", \"polarity\": \"positive\"}]",
+    "output": "Heart/Mediastinum: Stable large cardiac silhouette."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"sternal wires\", \"location\": \"bones/soft tissues\", \"extent\": \"unchanged\", \"polarity\": \"positive\"}]",
+    "output": "Bones/Soft Tissues: The sternal wires are unchanged."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"degenerative changes\", \"location\": null, \"extent\": null, \"polarity\": \"positive\"}]",
+    "output": "Bones/Soft Tissues: There are degenerative changes."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"bones\", \"location\": \"bones/soft tissues\", \"extent\": \"unchanged\", \"polarity\": \"positive\"}]",
+    "output": "Bones/Soft Tissues: The bones are unchanged."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"bilateral small pleural effusions\", \"location\": null, \"extent\": \"stable, greater on the LEFT\", \"polarity\": \"positive\"}]",
+    "output": "Stable bilateral small pleural effusions, greater on the LEFT."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"degenerative changes\", \"location\": \"bones\", \"extent\": null, \"polarity\": \"positive\"}]",
+    "output": "Bones/Soft Tissues: There are degenerative changes in the bones."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"bilateral pleural effusions\", \"location\": \"pleura\", \"extent\": \"stable\", \"polarity\": \"positive\"}]",
+    "output": "Pleura: Stable bilateral pleural effusions."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"cardiac silhouette\", \"location\": \"heart/mediastinum\", \"extent\": \"within normal limits for age and technique\", \"polarity\": \"positive\"}]",
+    "output": "Heart/Mediastinum: The cardiac silhouette is within normal limits for age and technique."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"hydropneumothorax\", \"location\": \"LEFT\", \"extent\": \"maximal air gap of 4 mm at the apex\", \"polarity\": \"positive\"}, {\"lesion\": \"hydropneumothorax\", \"location\": \"LEFT\", \"extent\": \"compared to 11 mm\", \"polarity\": \"negative\"}]",
+    "output": "Decreased LEFT hydropneumothorax with a maximal air gap of 4 mm at the apex compared to 11 mm."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"pneumothorax\", \"location\": \"LEFT apical\", \"extent\": \"1.3 cm\", \"polarity\": \"positive\"}, {\"lesion\": \"pleural effusion\", \"location\": \"LEFT\", \"extent\": \"small\", \"polarity\": \"positive\"}]",
+    "output": "Pleura: There is stable LEFT apical pneumothorax measuring 1.3 cm and stable small LEFT pleural effusion."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"degenerative changes\", \"location\": \"bones/soft tissues\", \"extent\": null, \"polarity\": \"positive\"}]",
+    "output": "Bones/Soft Tissues: There are degenerative changes."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"large cardiac silhouette\", \"location\": \"heart/mediastinum\", \"extent\": \"stable\", \"polarity\": \"positive\"}]",
+    "output": "Heart/Mediastinum: Stable large cardiac silhouette."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"lung volumes\", \"location\": \"lungs\", \"extent\": \"low\", \"polarity\": \"positive\"}]",
+    "output": "Lungs: The lung volumes are low."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"bones\", \"location\": null, \"extent\": \"unchanged\", \"polarity\": \"positive\"}]",
+    "output": "Bones/Soft Tissues: The bones are unchanged."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"cardiac silhouette\", \"location\": \"heart/mediastinum\", \"extent\": \"stable large\", \"polarity\": \"positive\"}]",
+    "output": "Heart/Mediastinum: Stable large cardiac silhouette."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"cardiac assist device\", \"location\": null, \"extent\": null, \"polarity\": \"positive\"}]",
+    "output": "There is a cardiac assist device."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"devices/tubes/lines\", \"location\": null, \"extent\": null, \"polarity\": \"negative\"}]",
+    "output": "Devices/Tubes/Lines: None."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"pleural effusion\", \"location\": \"RIGHT pleura\", \"extent\": \"small loculated\", \"polarity\": \"positive\"}]",
+    "output": "IMPRESSION: Stable small loculated RIGHT pleural effusion."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"cardiac silhouette\", \"location\": \"heart/mediastinum\", \"extent\": \"stable\", \"polarity\": \"positive\"}]",
+    "output": "Heart/Mediastinum: Stable large cardiac silhouette."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"stents\", \"location\": \"upper abdomen\", \"extent\": \"partially included\", \"polarity\": \"positive\"}]",
+    "output": "There are partially included stents in the upper abdomen."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"bandlike atelectasis\", \"location\": \"RIGHT lung\", \"extent\": \"persistent\", \"polarity\": \"positive\"}]",
+    "output": "Persistent bandlike atelectasis in the RIGHT lung."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"decreased atelectasis\", \"location\": \"LEFT lower lobe\", \"extent\": null, \"polarity\": \"positive\"}]",
+    "output": "Decreased LEFT lower lobe atelectasis."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"air gap\", \"location\": null, \"extent\": \"2.8 cm\", \"polarity\": \"positive\"}]",
+    "output": "The maximal air gap is 2.8 cm."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"bones\", \"location\": null, \"extent\": \"unchanged\", \"polarity\": \"positive\"}]",
+    "output": "Bones/Soft Tissues: The bones are unchanged."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"pleural effusion\", \"location\": \"pleura\", \"extent\": null, \"polarity\": \"negative\"}, {\"lesion\": \"pneumothorax\", \"location\": \"pleura\", \"extent\": null, \"polarity\": \"negative\"}]",
+    "output": "Pleura: There is no pleural effusion or pneumothorax."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"\", \"location\": \"\", \"extent\": \"\", \"polarity\": \"negative\"}]",
+    "output": "Devices/Tubes/Lines: None."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"multifocal patchy atelectasis\", \"location\": \"LEFT lower lung\", \"extent\": \"increased\", \"polarity\": \"positive\"}]",
+    "output": "Increased multifocal patchy atelectasis in the LEFT lower lung."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"degenerative changes\", \"location\": null, \"extent\": null, \"polarity\": \"positive\"}]",
+    "output": "There are degenerative changes."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"skinfold\", \"location\": \"left hemithorax\", \"extent\": \"mimicking pneumothorax\", \"polarity\": \"positive\"}, {\"lesion\": \"pneumothorax\", \"location\": \"left hemithorax\", \"extent\": null, \"polarity\": \"negative\"}]",
+    "output": "There is a skinfold in the LEFT hemithorax mimicking pneumothorax."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"enteric tube\", \"location\": \"stomach\", \"extent\": null, \"polarity\": \"positive\"}]",
+    "output": "Devices/Tubes/Lines: Enteric tube reached the stomach, the tip is not included."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"chest tube\", \"location\": \"right basilar\", \"extent\": null, \"polarity\": \"positive\"}]",
+    "output": "Devices/Tubes/Lines: Right basilar chest tube in place."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"obscuration\", \"location\": \"LEFT border of the mediastinum\", \"extent\": null, \"polarity\": \"positive\"}]",
+    "output": "Heart/Mediastinum: There is obscuration of the LEFT border of the mediastinum."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"bones\", \"location\": null, \"extent\": \"unchanged\", \"polarity\": \"positive\"}]",
+    "output": "Bones are unchanged."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"Swan-Ganz catheter\", \"location\": \"RIGHT interlobar pulmonary artery\", \"extent\": null, \"polarity\": \"positive\"}]",
+    "output": "The tip of the RIGHT IJ Swan-Ganz catheter is in the RIGHT interlobar pulmonary artery."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"patchy opacities\", \"location\": \"LEFT lower lobe\", \"extent\": \"stable\", \"polarity\": \"positive\"}]",
+    "output": "There are stable patchy opacities in the LEFT lower lobe."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"pneumonia\", \"location\": null, \"extent\": null, \"polarity\": \"negative\"}]",
+    "output": "Superimposed pneumonia cannot be excluded."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"cardiac silhouette\", \"location\": \"heart/mediastinum\", \"extent\": \"stable\", \"polarity\": \"positive\"}]",
+    "output": "Heart/Mediastinum: Cardiac silhouette is stable."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"loculation\", \"location\": \"RIGHT pleural effusion\", \"extent\": null, \"polarity\": \"positive\"}, {\"lesion\": \"loculation\", \"location\": \"fissures\", \"extent\": null, \"polarity\": \"positive\"}]",
+    "output": "There is loculation of the RIGHT pleural effusion and into the fissures."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"cardiac silhouette\", \"location\": null, \"extent\": \"stable\", \"polarity\": \"positive\"}]",
+    "output": "Stable cardiac silhouette."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"enteric tube\", \"location\": \"stomach\", \"extent\": null, \"polarity\": \"positive\"}]",
+    "output": "Devices/Tubes/Lines: Enteric tube reached the stomach, the tip is not included."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"ET tube\", \"location\": null, \"extent\": \"7.1 cm above the carina\", \"polarity\": \"positive\"}]",
+    "output": "ET tube terminates 7.1 cm above the carina."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"pulmonary edema\", \"location\": \"interstitial\", \"extent\": null, \"polarity\": \"positive\"}]",
+    "output": "There is interstitial pulmonary edema."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"bones\", \"location\": null, \"extent\": \"unchanged\", \"polarity\": \"positive\"}, {\"lesion\": \"degenerative changes\", \"location\": \"bones\", \"extent\": null, \"polarity\": \"positive\"}]",
+    "output": "Bones/Soft Tissues: Bones are unchanged and there are degenerative changes."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"patchy consolidative opacities\", \"location\": \"RIGHT lower lung zone\", \"extent\": null, \"polarity\": \"positive\"}]",
+    "output": "Lungs: There are patchy consolidative opacities in the RIGHT lower lung zone."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"obscuration\", \"location\": \"LEFT lower quadrant\", \"extent\": null, \"polarity\": \"positive\"}]",
+    "output": "Heart/Mediastinum: There is obscuration of the LEFT lower quadrant."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"skeletal abnormality\", \"location\": \"bones/soft tissues\", \"extent\": null, \"polarity\": \"negative\"}]",
+    "output": "Bones/Soft Tissues: There is no significant skeletal abnormality."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"bones\", \"location\": null, \"extent\": \"unchanged\", \"polarity\": \"positive\"}]",
+    "output": "The bones are unchanged."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"pigtail chest tube\", \"location\": \"LEFT basilar\", \"extent\": null, \"polarity\": \"positive\"}]",
+    "output": "There is a LEFT basilar pigtail chest tube."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"catheter\", \"location\": \"cardiac silhouette\", \"extent\": null, \"polarity\": \"positive\"}, {\"lesion\": \"mediastinal drain\", \"location\": null, \"extent\": null, \"polarity\": \"positive\"}]",
+    "output": "There is a catheter overlying the cardiac silhouette and there is a mediastinal drain."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"basilar opacity\", \"location\": \"LEFT lung\", \"extent\": \"stable\", \"polarity\": \"positive\"}]",
+    "output": "Lungs: There is stable LEFT basilar opacity obscuring the LEFT hemidiaphragm."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"atelectasis\", \"location\": \"LEFT midlung zone\", \"extent\": \"bandlike\", \"polarity\": \"positive\"}]",
+    "output": "Bandlike atelectasis in the LEFT midlung zone."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"tortuous thoracic aorta\", \"location\": \"heart/mediastinum\", \"extent\": null, \"polarity\": \"positive\"}, {\"lesion\": \"cardiac silhouette\", \"location\": \"heart/mediastinum\", \"extent\": \"stable\", \"polarity\": \"positive\"}]",
+    "output": "Heart/Mediastinum: There is tortuous thoracic aorta. Stable cardiac silhouette."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"lung volumes\", \"location\": \"lungs\", \"extent\": \"low\", \"polarity\": \"positive\"}]",
+    "output": "Lungs: The lung volumes are low."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"surgical clips\", \"location\": \"RIGHT axilla\", \"extent\": \"stable\", \"polarity\": \"positive\"}]",
+    "output": "Stable surgical clips in the RIGHT axilla."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"compression deformities\", \"location\": \"vertebrae\", \"extent\": null, \"polarity\": \"positive\"}, {\"lesion\": \"degenerative changes\", \"location\": \"vertebrae\", \"extent\": null, \"polarity\": \"positive\"}]",
+    "output": "Bones/Soft Tissues: There are compression deformities of vertebrae and there are degenerative changes."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"basilar opacity\", \"location\": \"LEFT lung\", \"extent\": \"increased\", \"polarity\": \"positive\"}, {\"lesion\": \"hemidiaphragm\", \"location\": \"LEFT\", \"extent\": \"obscured\", \"polarity\": \"positive\"}]",
+    "output": "Lungs: There is increased LEFT basilar opacity obscuring the LEFT hemidiaphragm."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"devices/tubes/lines\", \"location\": null, \"extent\": null, \"polarity\": \"negative\"}]",
+    "output": "Devices/Tubes/Lines: None."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"pneumothorax\", \"location\": \"pleura\", \"extent\": null, \"polarity\": \"negative\"}]",
+    "output": "Pleura: No pneumothorax."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"patchy atelectasis\", \"location\": \"lung bases\", \"extent\": \"stable\", \"polarity\": \"positive\"}]",
+    "output": "IMPRESSION: Stable patchy atelectasis in the lung bases."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"lung volumes\", \"location\": \"lungs\", \"extent\": \"low\", \"polarity\": \"positive\"}]",
+    "output": "Lungs: The lung volumes are low."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"LEFT retrocardiac opacity\", \"location\": \"lungs\", \"extent\": \"stable\", \"polarity\": \"positive\"}]",
+    "output": "Lungs: Stable LEFT retrocardiac opacity."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"degenerative changes\", \"location\": \"bones\", \"extent\": null, \"polarity\": \"positive\"}]",
+    "output": "Bones/Soft Tissues: There are degenerative changes in the bones."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"pneumothorax\", \"location\": \"pleura\", \"extent\": null, \"polarity\": \"negative\"}]",
+    "output": "Pleura: No pneumothorax."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"pneumothorax\", \"location\": null, \"extent\": null, \"polarity\": \"negative\"}]",
+    "output": "No pneumothorax."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"devices/tubes/lines\", \"location\": null, \"extent\": null, \"polarity\": \"negative\"}]",
+    "output": "Devices/Tubes/Lines: None."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"bilateral basilar opacities\", \"location\": \"lungs\", \"extent\": \"stable\", \"polarity\": \"positive\"}]",
+    "output": "Lungs: Stable bilateral basilar opacities."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"pleural effusion\", \"location\": \"pleura\", \"extent\": null, \"polarity\": \"negative\"}, {\"lesion\": \"pneumothorax\", \"location\": \"pleura\", \"extent\": null, \"polarity\": \"negative\"}]",
+    "output": "Pleura: There is no pleural effusion or pneumothorax."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"basilar opacity\", \"location\": \"LEFT\", \"extent\": \"obscuring the LEFT hemidiaphragm and LEFT heart border\", \"polarity\": \"positive\"}]",
+    "output": "There is LEFT basilar opacity obscuring the LEFT hemidiaphragm and LEFT heart border."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"patchy atelectasis\", \"location\": \"lower lungs\", \"extent\": null, \"polarity\": \"positive\"}]",
+    "output": "IMPRESSION: Likely patchy atelectasis in the lower lungs."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"pulmonary edema\", \"location\": \"lungs\", \"extent\": \"stable\", \"polarity\": \"positive\"}]",
+    "output": "Lungs: Stable pulmonary edema."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"right upper paramedial consolidative opacity\", \"location\": \"lungs\", \"extent\": \"new\", \"polarity\": \"positive\"}, {\"lesion\": \"volume loss\", \"location\": \"lungs\", \"extent\": null, \"polarity\": \"positive\"}]",
+    "output": "Lungs: New right upper paramedial consolidative opacity with volume loss prior."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"sternal wires\", \"location\": null, \"extent\": \"unchanged in position\", \"polarity\": \"positive\"}, {\"lesion\": \"bones\", \"location\": null, \"extent\": \"unchanged with degenerative changes\", \"polarity\": \"positive\"}]",
+    "output": "Bones/Soft Tissues: Sternal wires are unchanged in position. The bones are unchanged with degenerative changes."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"cardiac silhouette\", \"location\": \"heart/mediastinum\", \"extent\": \"stable\", \"polarity\": \"positive\"}]",
+    "output": "Heart/Mediastinum: Stable cardiac silhouette."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"cardiac silhouette\", \"location\": \"heart/mediastinum\", \"extent\": \"stable\", \"polarity\": \"positive\"}]",
+    "output": "Heart/Mediastinum: Stable cardiac silhouette."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"transarterial likely replacement\", \"location\": \"heart/mediastinum\", \"extent\": null, \"polarity\": \"positive\"}]",
+    "output": "Heart/Mediastinum: Status post transarterial likely replacement."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"LEFT IJ line\", \"location\": \"RIGHT brachiocephalic vein\", \"extent\": \"coursing\", \"polarity\": \"positive\"}]",
+    "output": "The LEFT IJ line is coursing into the RIGHT brachiocephalic vein."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"Swan-Ganz catheter\", \"location\": \"RIGHT hilum\", \"extent\": null, \"polarity\": \"positive\"}]",
+    "output": "The tip of the Swan-Ganz catheter overlies the RIGHT hilum."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"RIGHT IJ catheter\", \"location\": \"RIGHT atrium\", \"extent\": null, \"polarity\": \"positive\"}]",
+    "output": "The tip of the RIGHT IJ catheter terminates in the RIGHT atrium."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"tortuous innominate arteries\", \"location\": \"RIGHT heart/mediastinum\", \"extent\": null, \"polarity\": \"positive\"}]",
+    "output": "Heart/Mediastinum: There is tortuous RIGHT innominate arteries."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"bones\", \"location\": null, \"extent\": \"unchanged\", \"polarity\": \"positive\"}]",
+    "output": "Bones/Soft Tissues: The bones are unchanged."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"skeletal abnormality\", \"location\": null, \"extent\": null, \"polarity\": \"negative\"}]",
+    "output": "There is no significant skeletal abnormality."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"pulmonary edema\", \"location\": null, \"extent\": \"stable\", \"polarity\": \"positive\"}]",
+    "output": "There is stable pulmonary edema."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"bones\", \"location\": \"bones/soft tissues\", \"extent\": \"unchanged\", \"polarity\": \"positive\"}]",
+    "output": "Bones/Soft Tissues: Bones are unchanged."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"devices/tubes/lines\", \"location\": null, \"extent\": null, \"polarity\": \"negative\"}]",
+    "output": "Devices/Tubes/Lines: None."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"airspace opacities\", \"location\": \"RIGHT upper lobe\", \"extent\": \"asymmetric\", \"polarity\": \"positive\"}]",
+    "output": "There is asymmetric airspace opacities in the RIGHT upper lobe."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"multifocal patchy atelectasis\", \"location\": \"lower lungs\", \"extent\": \"stable\", \"polarity\": \"positive\"}]",
+    "output": "IMPRESSION: Stable multifocal patchy atelectasis in the lower lungs."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"LEFT basilar opacity\", \"location\": \"LEFT hemidiaphragm\", \"extent\": \"stable\", \"polarity\": \"positive\"}]",
+    "output": "Stable LEFT basilar opacity obscuring the LEFT hemidiaphragm."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"patchy opacity\", \"location\": \"LEFT lower lung zone\", \"extent\": null, \"polarity\": \"positive\"}]",
+    "output": "Lungs: There is patchy opacity in the LEFT lower lung zone."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"enlargement of the cardiac silhouette\", \"location\": \"heart/mediastinum\", \"extent\": \"stable\", \"polarity\": \"positive\"}]",
+    "output": "Heart/Mediastinum: Stable enlargement of the cardiac silhouette."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"bones\", \"location\": null, \"extent\": \"unchanged\", \"polarity\": \"positive\"}, {\"lesion\": \"degenerative changes\", \"location\": \"bones/soft tissues\", \"extent\": null, \"polarity\": \"positive\"}]",
+    "output": "Bones/Soft Tissues: The bones are unchanged and there are degenerative changes."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"bones\", \"location\": null, \"extent\": \"unchanged\", \"polarity\": \"positive\"}, {\"lesion\": \"degenerative changes\", \"location\": \"bones/soft tissues\", \"extent\": null, \"polarity\": \"positive\"}]",
+    "output": "Bones/Soft Tissues: The bones are unchanged and there are degenerative changes."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"cardiac silhouette\", \"location\": \"heart/mediastinum\", \"extent\": \"stable enlargement\", \"polarity\": \"positive\"}]",
+    "output": "Heart/Mediastinum: Status post CABG. Stable enlargement of the cardiac silhouette."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"degenerative changes\", \"location\": \"bones\", \"extent\": null, \"polarity\": \"positive\"}]",
+    "output": "Bones/Soft Tissues: There are degenerative changes in the bones."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"patchy atelectasis\", \"location\": \"LEFT lung base\", \"extent\": \"new\", \"polarity\": \"positive\"}, {\"lesion\": \"pneumonia\", \"location\": \"LEFT lung base\", \"extent\": \"new\", \"polarity\": \"positive\"}]",
+    "output": "New patchy atelectasis or pneumonia in the LEFT lung base."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"stent\", \"location\": \"LEFT innominate vein\", \"extent\": null, \"polarity\": \"positive\"}]",
+    "output": "There is a stent in the LEFT innominate vein."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"cardiac silhouette\", \"location\": \"heart/mediastinum\", \"extent\": \"stable\", \"polarity\": \"positive\"}, {\"lesion\": \"LEFT heart border\", \"location\": \"heart/mediastinum\", \"extent\": \"obscured\", \"polarity\": \"positive\"}]",
+    "output": "Stable cardiac silhouette with obscuration of the LEFT heart border."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"pleural effusions\", \"location\": \"pleura\", \"extent\": \"stable\", \"polarity\": \"positive\"}]",
+    "output": "Pleura: Stable bilateral pleural effusions."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"chest tube\", \"location\": \"LEFT basilar\", \"extent\": null, \"polarity\": \"positive\"}]",
+    "output": "Devices/Tubes/Lines: There is a LEFT basilar chest tube."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"bones\", \"location\": null, \"extent\": \"unchanged\", \"polarity\": \"positive\"}]",
+    "output": "The bones are unchanged."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"pulmonary edema\", \"location\": \"lungs\", \"extent\": \"increased\", \"polarity\": \"positive\"}]",
+    "output": "Lungs: There is increased pulmonary edema."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"atelectasis\", \"location\": \"lower lungs\", \"extent\": \"stable likely\", \"polarity\": \"positive\"}]",
+    "output": "Stable likely atelectasis in the lower lungs adjacent to the pleural effusions."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"sternal wires\", \"location\": \"bones/soft tissues\", \"extent\": \"stable\", \"polarity\": \"positive\"}]",
+    "output": "Bones/Soft Tissues: There are stable sternal wires."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"pleural effusion\", \"location\": \"RIGHT pleura\", \"extent\": \"small\", \"polarity\": \"positive\"}]",
+    "output": "IMPRESSION: Stable small RIGHT pleural effusion."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"bilateral small pleural effusions\", \"location\": null, \"extent\": \"stable\", \"polarity\": \"positive\"}, {\"lesion\": \"pneumothorax\", \"location\": null, \"extent\": null, \"polarity\": \"negative\"}]",
+    "output": "Stable bilateral small pleural effusions without pneumothorax."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"pneumothorax\", \"location\": null, \"extent\": null, \"polarity\": \"negative\"}]",
+    "output": "No pneumothorax."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"patchy atelectasis\", \"location\": \"LEFT lower lobe\", \"extent\": \"stable\", \"polarity\": \"positive\"}, {\"lesion\": \"consolidation\", \"location\": \"LEFT lower lobe\", \"extent\": null, \"polarity\": \"positive\"}]",
+    "output": "IMPRESSION: Stable patchy atelectasis or consolidation the LEFT lower lobe."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"mediastinal drains\", \"location\": null, \"extent\": null, \"polarity\": \"positive\"}]",
+    "output": "Devices/Tubes/Lines: There are mediastinal drains."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"heart\", \"location\": \"heart/mediastinum\", \"extent\": \"normal\", \"polarity\": \"positive\"}, {\"lesion\": \"mediastinum\", \"location\": \"heart/mediastinum\", \"extent\": \"normal\", \"polarity\": \"positive\"}]",
+    "output": "Normal heart and mediastinum."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"interstitial pulmonary edema\", \"location\": null, \"extent\": \"stable\", \"polarity\": \"positive\"}]",
+    "output": "There is stable interstitial pulmonary edema."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"double-lumen RIGHT IJ catheter\", \"location\": \"RIGHT atrium\", \"extent\": null, \"polarity\": \"positive\"}]",
+    "output": "The tip of the double-lumen RIGHT IJ catheter is in the RIGHT atrium."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"ET tube\", \"location\": null, \"extent\": \"4.2 cm above the carina\", \"polarity\": \"positive\"}]",
+    "output": "Devices/Tubes/Lines: ET tube terminates 4.2 cm above the carina."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"patchy atelectasis\", \"location\": \"right lower lung zone\", \"extent\": \"persistent\", \"polarity\": \"positive\"}, {\"lesion\": \"pneumonia\", \"location\": \"right lower lung zone\", \"extent\": \"persistent\", \"polarity\": \"positive\"}]",
+    "output": "IMPRESSION: Persistent patchy atelectasis or pneumonia in the RIGHT lower lung zone."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"ET tube\", \"location\": \"above the carina\", \"extent\": \"3.1 cm\", \"polarity\": \"positive\"}]",
+    "output": "ET tube terminates 3.1 cm above the carina."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"chest tubes\", \"location\": \"right chest\", \"extent\": null, \"polarity\": \"positive\"}, {\"lesion\": \"LEFT apical chest tube\", \"location\": null, \"extent\": \"interval removal\", \"polarity\": \"positive\"}]",
+    "output": "Devices/Tubes/Lines: There are RIGHT chest tubes. Interval removal of a LEFT apical chest tube."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"postsurgical changes of wedge resection\", \"location\": \"LEFT apex\", \"extent\": \"stable\", \"polarity\": \"positive\"}]",
+    "output": "Lungs: There are stable postsurgical changes of wedge resection in the LEFT apex."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"lung volumes\", \"location\": \"lungs\", \"extent\": \"low\", \"polarity\": \"positive\"}]",
+    "output": "The lung volumes are low."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"pneumothorax\", \"location\": \"right apical\", \"extent\": \"small\", \"polarity\": \"positive\"}]",
+    "output": "Pleura: There is decrease in the small RIGHT apical pneumothorax."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"pulmonary edema\", \"location\": \"lungs\", \"extent\": \"stable\", \"polarity\": \"positive\"}]",
+    "output": "Lungs: There is stable interstitial pulmonary edema."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"PICC line\", \"location\": \"RIGHT\", \"extent\": \"near the cavoatrial junction\", \"polarity\": \"positive\"}]",
+    "output": "Devices/Tubes/Lines: The tip of the RIGHT PICC line is near the cavoatrial junction."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"RIGHT pleural effusion\", \"location\": \"pleura\", \"extent\": \"stable\", \"polarity\": \"positive\"}, {\"lesion\": \"pneumothorax\", \"location\": \"pleura\", \"extent\": null, \"polarity\": \"negative\"}]",
+    "output": "Stable RIGHT pleural effusion without pneumothorax."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"pneumothorax\", \"location\": \"pleura\", \"extent\": null, \"polarity\": \"negative\"}]",
+    "output": "Pleura: No pneumothorax."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"pneumothorax\", \"location\": \"pleura\", \"extent\": null, \"polarity\": \"negative\"}]",
+    "output": "Pleura: No pneumothorax."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"obscuration\", \"location\": \"LEFT wall of the heart\", \"extent\": null, \"polarity\": \"positive\"}, {\"lesion\": \"obscuration\", \"location\": \"mediastinum\", \"extent\": null, \"polarity\": \"positive\"}]",
+    "output": "Heart/Mediastinum: There is obscuration of the LEFT wall of the heart and mediastinum."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"pleural effusion\", \"location\": \"pleura\", \"extent\": null, \"polarity\": \"negative\"}, {\"lesion\": \"pneumothorax\", \"location\": \"pleura\", \"extent\": null, \"polarity\": \"negative\"}]",
+    "output": "Pleura: There is no pleural effusion or pneumothorax."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"enteric tube\", \"location\": \"stomach\", \"extent\": \"in the body of stomach\", \"polarity\": \"positive\"}]",
+    "output": "Enteric tube reached the stomach, the tip is in the body of stomach."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"feeding tube\", \"location\": \"stomach\", \"extent\": null, \"polarity\": \"positive\"}]",
+    "output": "Devices/Tubes/Lines: Feeding tube reached the stomach, the tip is not included."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"cardiac silhouette\", \"location\": \"heart/mediastinum\", \"extent\": \"within normal limits for age and technique\", \"polarity\": \"positive\"}]",
+    "output": "The cardiac silhouette is within normal limits for age and technique."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"bones\", \"location\": null, \"extent\": \"unchanged\", \"polarity\": \"positive\"}]",
+    "output": "Bones/Soft Tissues: The bones are unchanged."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"cardiac silhouette\", \"location\": \"heart/mediastinum\", \"extent\": \"stable\", \"polarity\": \"positive\"}]",
+    "output": "Heart/Mediastinum: Stable cardiac silhouette."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"lung volumes\", \"location\": null, \"extent\": \"low\", \"polarity\": \"positive\"}]",
+    "output": "The lung volumes are low."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"cardiac silhouette\", \"location\": \"heart/mediastinum\", \"extent\": \"stable\", \"polarity\": \"positive\"}]",
+    "output": "Heart/Mediastinum: Stable cardiac silhouette."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"pneumothorax\", \"location\": \"pleura\", \"extent\": null, \"polarity\": \"negative\"}]",
+    "output": "No pneumothorax."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"mass\", \"location\": \"RIGHT mid and lower lung zones\", \"extent\": \"stable\", \"polarity\": \"positive\"}]",
+    "output": "Stable mass in the RIGHT mid and lower lung zones."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"sternotomy wires\", \"location\": \"bones/soft tissues\", \"extent\": \"intact\", \"polarity\": \"positive\"}, {\"lesion\": \"degenerative changes\", \"location\": \"bones\", \"extent\": null, \"polarity\": \"positive\"}]",
+    "output": "Bones/Soft Tissues: Sternotomy wires are intact. There are degenerative changes in the bones."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"sternotomy wires\", \"location\": \"bones/soft tissues\", \"extent\": \"intact\", \"polarity\": \"positive\"}, {\"lesion\": \"bones\", \"location\": \"bones/soft tissues\", \"extent\": \"unchanged\", \"polarity\": \"positive\"}]",
+    "output": "Bones/Soft Tissues: Sternotomy wires are intact. The bones are unchanged. There are degenerative changes."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"patchy opacities\", \"location\": \"suprahilar LEFT lung\", \"extent\": \"stable\", \"polarity\": \"positive\"}]",
+    "output": "Lungs: Stable patchy opacities in the suprahilar LEFT lung."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"tortuous thoracic aorta\", \"location\": \"heart/mediastinum\", \"extent\": null, \"polarity\": \"positive\"}]",
+    "output": "Heart/Mediastinum: Tortuous thoracic aorta."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"large LEFT pleural effusion\", \"location\": null, \"extent\": \"increased\", \"polarity\": \"positive\"}, {\"lesion\": \"atelectasis\", \"location\": \"LEFT lung\", \"extent\": null, \"polarity\": \"positive\"}]",
+    "output": "IMPRESSION: Increased large LEFT pleural effusion causing atelectasis of the LEFT lung."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"cardiac silhouette\", \"location\": \"heart/mediastinum\", \"extent\": \"within normal limits\", \"polarity\": \"positive\"}]",
+    "output": "Heart/Mediastinum: The cardiac silhouette is within normal limits for age and technique."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"significant skeletal abnormality\", \"location\": \"bones/soft tissues\", \"extent\": null, \"polarity\": \"negative\"}]",
+    "output": "Bones/Soft Tissues: Normal. No significant skeletal abnormality."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"loculated fluid\", \"location\": \"LEFT lateral chest wall\", \"extent\": \"new\", \"polarity\": \"positive\"}]",
+    "output": "Pleura: There is new loculated fluid along the LEFT lateral chest wall."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"pneumothorax\", \"location\": \"RIGHT apical\", \"extent\": \"5 mm\", \"polarity\": \"positive\"}, {\"lesion\": \"pneumothorax\", \"location\": \"RIGHT lateral\", \"extent\": \"5 mm\", \"polarity\": \"positive\"}]",
+    "output": "Pleura: There is a new 5 mm RIGHT apical pneumothorax and a 5 mm RIGHT lateral pneumothorax."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"LEFT pleural effusion\", \"location\": null, \"extent\": \"small and stable\", \"polarity\": \"positive\"}, {\"lesion\": \"partial LEFT lower lobe atelectasis or consolidation\", \"location\": \"LEFT lower lobe\", \"extent\": \"stable\", \"polarity\": \"positive\"}]",
+    "output": "IMPRESSION: Stable small LEFT pleural effusion and stable partial LEFT lower lobe atelectasis or consolidation."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"patchy consolidation\", \"location\": \"LEFT upper lobe\", \"extent\": \"new\", \"polarity\": \"positive\"}, {\"lesion\": \"decreased opacity\", \"location\": \"LEFT retrocardiac region\", \"extent\": null, \"polarity\": \"positive\"}]",
+    "output": "Lungs: There is new patchy consolidation in the LEFT upper lobe and decreased opacity in the LEFT retrocardiac region."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"surgical clips\", \"location\": \"anterior chest wall\", \"extent\": null, \"polarity\": \"positive\"}]",
+    "output": "There are surgical clips in the anterior chest wall."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"bibasilar patchy opacities\", \"location\": \"lungs\", \"extent\": \"greater on the LEFT\", \"polarity\": \"positive\"}]",
+    "output": "There are bibasilar patchy opacities, greater on the LEFT."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"cardiac valve replacement\", \"location\": null, \"extent\": \"status post\", \"polarity\": \"positive\"}]",
+    "output": "Heart/Mediastinum: Status post cardiac valve replacement."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"cardiac silhouette\", \"location\": \"heart/mediastinum\", \"extent\": \"stable large\", \"polarity\": \"positive\"}]",
+    "output": "Heart/Mediastinum: Stable large cardiac silhouette."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"LEFT pleural effusion\", \"location\": \"pleura\", \"extent\": \"small\", \"polarity\": \"positive\"}, {\"lesion\": \"pneumothorax\", \"location\": \"pleura\", \"extent\": null, \"polarity\": \"negative\"}]",
+    "output": "Pleura: Stable small LEFT pleural effusion. No pneumothorax."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"bilateral reticular opacities\", \"location\": \"lungs\", \"extent\": \"stable\", \"polarity\": \"positive\"}, {\"lesion\": \"traction bronchiectasis\", \"location\": \"lungs\", \"extent\": null, \"polarity\": \"positive\"}]",
+    "output": "Lungs: There are stable bilateral reticular opacities, with superimposed traction bronchiectasis."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"opacification\", \"location\": \"LEFT hemithorax\", \"extent\": \"complete\", \"polarity\": \"positive\"}]",
+    "output": "Lungs: There is complete opacification of the LEFT hemithorax."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"double-lumen hemodialysis IJ catheter\", \"location\": \"RIGHT atrium\", \"extent\": null, \"polarity\": \"positive\"}]",
+    "output": "The tip of the RIGHT double-lumen hemodialysis IJ catheter is in the RIGHT atrium."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"RIGHT IJ catheter\", \"location\": \"cavoatrial junction\", \"extent\": \"near\", \"polarity\": \"positive\"}]",
+    "output": "Devices/Tubes/Lines: The tip of the RIGHT IJ catheter is near the cavoatrial junction."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"lung volumes\", \"location\": \"lungs\", \"extent\": \"low\", \"polarity\": \"positive\"}]",
+    "output": "Lungs: The lung volumes are low."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"Port-A-Cath\", \"location\": \"RIGHT\", \"extent\": \"near the cavoatrial junction\", \"polarity\": \"positive\"}]",
+    "output": "Devices/Tubes/Lines: The tip of the RIGHT Port-A-Cath is in near the cavoatrial junction."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"pulmonary edema\", \"location\": null, \"extent\": null, \"polarity\": \"negative\"}, {\"lesion\": \"consolidation\", \"location\": null, \"extent\": null, \"polarity\": \"negative\"}]",
+    "output": "IMPRESSION: No evidence of pulmonary edema or consolidation."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"LEFT IJ catheter\", \"location\": \"SVC\", \"extent\": \"tip is in\", \"polarity\": \"positive\"}]",
+    "output": "Devices/Tubes/Lines: The tip of the LEFT IJ catheter is in the SVC."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"enlargement of the cardiac silhouette\", \"location\": \"heart/mediastinum\", \"extent\": \"stable\", \"polarity\": \"positive\"}]",
+    "output": "Heart/Mediastinum: There is stable enlargement of the cardiac silhouette."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"cardiac silhouette\", \"location\": \"heart/mediastinum\", \"extent\": \"stable\", \"polarity\": \"positive\"}]",
+    "output": "Heart/Mediastinum: Stable cardiac silhouette."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"bones\", \"location\": null, \"extent\": \"unchanged\", \"polarity\": \"positive\"}]",
+    "output": "Bones/Soft Tissues: The bones are unchanged."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"large cardiac silhouette\", \"location\": \"heart/mediastinum\", \"extent\": \"stable\", \"polarity\": \"positive\"}]",
+    "output": "Heart/Mediastinum: Stable large cardiac silhouette."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"bones\", \"location\": \"bones/soft tissues\", \"extent\": \"unchanged\", \"polarity\": \"positive\"}, {\"lesion\": \"degenerative changes\", \"location\": \"bones/soft tissues\", \"extent\": null, \"polarity\": \"positive\"}]",
+    "output": "The bones are unchanged and there are degenerative changes."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"pneumothorax\", \"location\": null, \"extent\": null, \"polarity\": \"negative\"}]",
+    "output": "No pneumothorax."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"devices/tubes/lines\", \"location\": null, \"extent\": null, \"polarity\": \"negative\"}]",
+    "output": "Devices/Tubes/Lines: None."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"pneumothorax\", \"location\": \"LEFT apical\", \"extent\": \"decreased, measures 10 mm\", \"polarity\": \"positive\"}]",
+    "output": "IMPRESSION: Decreased LEFT apical pneumothorax, measures 10 mm compared to 28 mm."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"hemodialysis catheter\", \"location\": \"RIGHT atrium\", \"extent\": null, \"polarity\": \"positive\"}]",
+    "output": "The tip of the RIGHT IJ hemodialysis catheter is in the RIGHT atrium."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"hemodialysis catheter\", \"location\": \"RIGHT atrium\", \"extent\": null, \"polarity\": \"positive\"}]",
+    "output": "There is a hemodialysis catheter with tip in the RIGHT atrium."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"pleural effusions\", \"location\": \"pleura\", \"extent\": \"stable bilateral small\", \"polarity\": \"positive\"}]",
+    "output": "Pleura: Stable bilateral small pleural effusions."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"bilateral lung transplant\", \"location\": \"lungs\", \"extent\": null, \"polarity\": \"positive\"}]",
+    "output": "Lungs: Status post bilateral lung transplant."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"coronary stents\", \"location\": null, \"extent\": null, \"polarity\": \"positive\"}]",
+    "output": "Devices/Tubes/Lines: Coronary stents."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"new consolidation\", \"location\": null, \"extent\": null, \"polarity\": \"negative\"}]",
+    "output": "IMPRESSION: No evidence for new consolidation."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"focal consolidation\", \"location\": \"lungs\", \"extent\": null, \"polarity\": \"negative\"}, {\"lesion\": \"pulmonary edema\", \"location\": \"lungs\", \"extent\": null, \"polarity\": \"negative\"}]",
+    "output": "Lungs: There is no focal consolidation or pulmonary edema."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"cardiac silhouette\", \"location\": \"heart/mediastinum\", \"extent\": \"stable\", \"polarity\": \"positive\"}]",
+    "output": "Heart/Mediastinum: Stable cardiac silhouette."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"degenerative changes\", \"location\": \"bones/soft tissues\", \"extent\": null, \"polarity\": \"positive\"}]",
+    "output": "Bones/Soft Tissues: There are degenerative changes."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"metallic fragments\", \"location\": \"mediastinum\", \"extent\": null, \"polarity\": \"positive\"}, {\"lesion\": \"metallic fragments\", \"location\": \"LEFT lung chest wall\", \"extent\": null, \"polarity\": \"positive\"}]",
+    "output": "There are multiple metallic fragments overlying the mediastinum, LEFT, lung chest wall and axilla."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"interstitial pulmonary edema\", \"location\": \"lungs\", \"extent\": \"stable\", \"polarity\": \"positive\"}]",
+    "output": "Lungs: Stable interstitial pulmonary edema."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"pulmonary fibrosis\", \"location\": \"LEFT lung\", \"extent\": \"stable\", \"polarity\": \"positive\"}]",
+    "output": "Lungs: There are stable changes of pulmonary fibrosis in the LEFT lung."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"IJ catheter\", \"location\": \"SVC\", \"extent\": null, \"polarity\": \"positive\"}]",
+    "output": "The tip of the RIGHT IJ catheter is in the SVC."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"pleural effusion\", \"location\": \"LEFT pleura\", \"extent\": \"small and stable\", \"polarity\": \"positive\"}]",
+    "output": "Pleura: There is stable small LEFT pleural effusion."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"Port-A-Cath tip\", \"location\": \"RIGHT atrium\", \"extent\": null, \"polarity\": \"positive\"}]",
+    "output": "The tip of the RIGHT Port-A-Cath is in the RIGHT atrium."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"\", \"location\": \"\", \"extent\": \"\", \"polarity\": \"negative\"}]",
+    "output": "Devices/Tubes/Lines: None."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"degenerative changes\", \"location\": null, \"extent\": null, \"polarity\": \"positive\"}]",
+    "output": "Bones/Soft Tissues: There are degenerative changes."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"pleural effusion\", \"location\": \"pleura\", \"extent\": null, \"polarity\": \"negative\"}, {\"lesion\": \"pneumothorax\", \"location\": \"pleura\", \"extent\": null, \"polarity\": \"negative\"}]",
+    "output": "Pleura: There is no pleural effusion or pneumothorax."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"cardiac silhouette\", \"location\": \"heart/mediastinum\", \"extent\": \"within normal limits for age and technique\", \"polarity\": \"positive\"}]",
+    "output": "Heart/Mediastinum: The cardiac silhouette is within normal limits for age and technique."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"pleural effusion\", \"location\": \"pleura\", \"extent\": null, \"polarity\": \"negative\"}, {\"lesion\": \"pneumothorax\", \"location\": \"pleura\", \"extent\": null, \"polarity\": \"negative\"}]",
+    "output": "Pleura: There is no pleural effusion or pneumothorax."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"pulmonary edema\", \"location\": \"lungs\", \"extent\": \"increased\", \"polarity\": \"positive\"}]",
+    "output": "Lungs: There is increased pulmonary edema."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"elevation\", \"location\": \"RIGHT hemidiaphragm\", \"extent\": \"persistent\", \"polarity\": \"positive\"}]",
+    "output": "Persistent elevation of the RIGHT hemidiaphragm."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"pleural effusions\", \"location\": null, \"extent\": \"stable\", \"polarity\": \"positive\"}, {\"lesion\": \"pulmonary edema\", \"location\": null, \"extent\": \"stable\", \"polarity\": \"positive\"}]",
+    "output": "IMPRESSION: Stable pleural effusions and stable pulmonary edema."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"Port-A-Cath\", \"location\": \"left\", \"extent\": \"near the cavoatrial junction\", \"polarity\": \"positive\"}]",
+    "output": "Devices/Tubes/Lines: The tip of the LEFT Port-A-Cath is near the cavoatrial junction."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"bones\", \"location\": null, \"extent\": \"unchanged\", \"polarity\": \"positive\"}, {\"lesion\": \"degenerative changes\", \"location\": \"bones/soft tissues\", \"extent\": null, \"polarity\": \"positive\"}]",
+    "output": "Bones/Soft Tissues: Bones are unchanged and there are degenerative changes."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"cardiac silhouette\", \"location\": \"heart/mediastinum\", \"extent\": \"within normal limits for age and technique\", \"polarity\": \"positive\"}]",
+    "output": "Heart/Mediastinum: The cardiac silhouette is within normal limits for age and technique."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"multifocal patchy opacities\", \"location\": \"RIGHT lung\", \"extent\": null, \"polarity\": \"positive\"}]",
+    "output": "Lungs: There are multifocal patchy opacities in the RIGHT lung."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"pleural effusion\", \"location\": \"LEFT\", \"extent\": \"small\", \"polarity\": \"positive\"}, {\"lesion\": \"atelectasis\", \"location\": \"LEFT lower lobe\", \"extent\": \"partial\", \"polarity\": \"positive\"}]",
+    "output": "Stable small LEFT pleural effusion and stable partial LEFT lower lobe atelectasis or consolidation."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"pleural drain\", \"location\": \"right apical\", \"extent\": null, \"polarity\": \"positive\"}]",
+    "output": "Devices/Tubes/Lines: Right apical pleural drain."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"cardiac silhouette\", \"location\": \"heart/mediastinum\", \"extent\": \"stable large\", \"polarity\": \"positive\"}, {\"lesion\": \"mediastinal silhouette\", \"location\": \"heart/mediastinum\", \"extent\": \"stable large\", \"polarity\": \"positive\"}]",
+    "output": "There is stable large cardiac and mediastinal silhouette."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"feeding tube\", \"location\": \"stomach\", \"extent\": null, \"polarity\": \"positive\"}]",
+    "output": "Feeding tube reached the stomach, the tip is not included."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"multifocal consolidation\", \"location\": \"RIGHT lung\", \"extent\": null, \"polarity\": \"positive\"}]",
+    "output": "Lungs: There is multifocal consolidation in the RIGHT lung."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"cardiac silhouette\", \"location\": \"heart/mediastinum\", \"extent\": \"stable large\", \"polarity\": \"positive\"}]",
+    "output": "Stable large cardiac silhouette."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"pleural effusion\", \"location\": \"pleura\", \"extent\": null, \"polarity\": \"negative\"}, {\"lesion\": \"pneumothorax\", \"location\": \"pleura\", \"extent\": null, \"polarity\": \"negative\"}]",
+    "output": "Pleura: No pleural effusion or pneumothorax."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"focal consolidation\", \"location\": \"lungs\", \"extent\": null, \"polarity\": \"negative\"}, {\"lesion\": \"pulmonary edema\", \"location\": \"lungs\", \"extent\": null, \"polarity\": \"negative\"}]",
+    "output": "Lungs: There is no focal consolidation or pulmonary edema."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"patchy opacities\", \"location\": \"LEFT lung base\", \"extent\": \"stable\", \"polarity\": \"positive\"}]",
+    "output": "Lungs: There are stable patchy opacities in the LEFT lung base."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"thoracic epidural catheter\", \"location\": null, \"extent\": null, \"polarity\": \"positive\"}]",
+    "output": "Note is made of thoracic epidural catheter."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"bones\", \"location\": null, \"extent\": \"unchanged\", \"polarity\": \"positive\"}]",
+    "output": "Bones/Soft Tissues: The bones are unchanged."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"devices/tubes/lines\", \"location\": null, \"extent\": null, \"polarity\": \"negative\"}]",
+    "output": "Devices/Tubes/Lines: None."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"cardiac silhouette\", \"location\": \"heart/mediastinum\", \"extent\": \"stable\", \"polarity\": \"positive\"}]",
+    "output": "Stable cardiac silhouette."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"interstitial pulmonary edema\", \"location\": \"LEFT lung\", \"extent\": \"stable\", \"polarity\": \"positive\"}, {\"lesion\": \"pneumonia\", \"location\": null, \"extent\": \"superimposed\", \"polarity\": \"positive\"}]",
+    "output": "Stable interstitial pulmonary edema in the LEFT lung and there is superimposed pneumonia."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"LEFT IJ catheter\", \"location\": \"SVC\", \"extent\": \"tip is in\", \"polarity\": \"positive\"}]",
+    "output": "Devices/Tubes/Lines: The tip of the LEFT IJ catheter is in the SVC."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"pleural effusion\", \"location\": \"pleura\", \"extent\": null, \"polarity\": \"negative\"}, {\"lesion\": \"pneumothorax\", \"location\": \"pleura\", \"extent\": null, \"polarity\": \"negative\"}]",
+    "output": "Pleura: There is no pleural effusion or pneumothorax."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"skeletal abnormality\", \"location\": \"bones/soft tissues\", \"extent\": \"significant\", \"polarity\": \"negative\"}]",
+    "output": "Bones/Soft Tissues: There is no significant skeletal abnormality."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"skeletal abnormality\", \"location\": \"bones/soft tissues\", \"extent\": null, \"polarity\": \"negative\"}]",
+    "output": "Bones/Soft Tissues: No significant skeletal abnormality."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"bones\", \"location\": \"bones/soft tissues\", \"extent\": \"unchanged\", \"polarity\": \"positive\"}]",
+    "output": "Bones/Soft Tissues: The bones are unchanged."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"scoliosis\", \"location\": \"spine\", \"extent\": null, \"polarity\": \"positive\"}]",
+    "output": "There is scoliosis of the spine."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"cardiac silhouette\", \"location\": \"heart/mediastinum\", \"extent\": \"stable\", \"polarity\": \"positive\"}]",
+    "output": "Stable cardiac silhouette."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"sternotomy wires\", \"location\": null, \"extent\": \"intact\", \"polarity\": \"positive\"}]",
+    "output": "Sternotomy wires are intact."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"LEFT lung aspiration or pneumonia\", \"location\": \"lungs\", \"extent\": \"significant improvement\", \"polarity\": \"positive\"}]",
+    "output": "IMPRESSION: Significant improvement in LEFT lung aspiration or pneumonia."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"pulmonary edema\", \"location\": null, \"extent\": \"stable\", \"polarity\": \"positive\"}, {\"lesion\": \"bilateral small pleural effusions\", \"location\": null, \"extent\": \"stable, greater on the LEFT\", \"polarity\": \"positive\"}]",
+    "output": "Stable pulmonary edema and stable bilateral small pleural effusions, greater on the LEFT."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"lung volumes\", \"location\": \"lungs\", \"extent\": \"improved\", \"polarity\": \"positive\"}]",
+    "output": "Lungs: Improved lung volumes."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"bandlike opacity\", \"location\": \"LEFT lower lung zone\", \"extent\": null, \"polarity\": \"positive\"}]",
+    "output": "Lungs: There is bandlike opacity in the LEFT lower lung zone."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"pneumothorax\", \"location\": \"RIGHT apical\", \"extent\": \"4 mm\", \"polarity\": \"positive\"}]",
+    "output": "Pleura: There is also a small RIGHT apical pneumothorax measuring up to 4 mm."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"small hydropneumothoraces\", \"location\": \"bilateral pleura\", \"extent\": \"maximal air gap of 2 mm\", \"polarity\": \"positive\"}, {\"lesion\": \"small hydropneumothoraces\", \"location\": \"LEFT pleura\", \"extent\": \"2 mm\", \"polarity\": \"positive\"}]",
+    "output": "Pleura: Stable bilateral small hydropneumothoraces with a maximal air gap of 2 mm on the LEFT and 2 mm on the RIGHT."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"sternotomy wires\", \"location\": null, \"extent\": \"intact\", \"polarity\": \"positive\"}]",
+    "output": "Bones/Soft Tissues: Sternotomy wires are intact."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"sternotomy hardware\", \"location\": \"bones/soft tissues\", \"extent\": \"stable\", \"polarity\": \"positive\"}]",
+    "output": "Bones/Soft Tissues: Stable sternotomy hardware."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"hydropneumothorax\", \"location\": \"LEFT\", \"extent\": \"small with a maximal air gap of 4 mm at the apex\", \"polarity\": \"positive\"}, {\"lesion\": \"hydropneumothorax\", \"location\": \"LEFT\", \"extent\": \"previously measured 11 mm\", \"polarity\": \"negative\"}]",
+    "output": "Pleura: There is decreased small LEFT hydropneumothorax with a maximal air gap of 4 mm at the apex, previously measured 11 mm."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"sternal wire\", \"location\": null, \"extent\": \"unchanged\", \"polarity\": \"positive\"}]",
+    "output": "Sternal wire is unchanged."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"sternotomy wires\", \"location\": null, \"extent\": \"intact\", \"polarity\": \"positive\"}]",
+    "output": "Sternotomy wires are intact."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"cardiac silhouette\", \"location\": \"heart/mediastinum\", \"extent\": \"stable\", \"polarity\": \"positive\"}]",
+    "output": "Heart/Mediastinum: Stable cardiac silhouette."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"interstitial pulmonary edema\", \"location\": \"lungs\", \"extent\": \"stable\", \"polarity\": \"positive\"}]",
+    "output": "Lungs: There is stable interstitial pulmonary edema."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"patchy opacities\", \"location\": \"lower lungs\", \"extent\": \"stable, greater on the LEFT\", \"polarity\": \"positive\"}]",
+    "output": "There are stable patchy opacities in the lower lungs, greater on the LEFT."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"sternal wires\", \"location\": \"bones/soft tissues\", \"extent\": \"unchanged\", \"polarity\": \"positive\"}]",
+    "output": "Bones/Soft Tissues: Sternal wires are unchanged."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"bilateral diffuse consolidation\", \"location\": \"lungs\", \"extent\": \"persistent\", \"polarity\": \"positive\"}]",
+    "output": "Lungs: There is persistent bilateral diffuse consolidation of the lungs."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"pulmonary edema\", \"location\": \"lungs\", \"extent\": \"stable\", \"polarity\": \"positive\"}, {\"lesion\": \"retrocardiac opacity\", \"location\": \"lungs\", \"extent\": \"stable\", \"polarity\": \"positive\"}]",
+    "output": "Lungs: Stable pulmonary edema. Stable retrocardiac opacity."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"small bilateral pleural effusions\", \"location\": \"pleura\", \"extent\": \"stable\", \"polarity\": \"positive\"}, {\"lesion\": \"pneumothorax\", \"location\": \"pleura\", \"extent\": null, \"polarity\": \"negative\"}]",
+    "output": "Pleura: There are stable small bilateral pleural effusions without pneumothorax."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"chest tube\", \"location\": \"RIGHT basilar\", \"extent\": null, \"polarity\": \"positive\"}]",
+    "output": "Devices/Tubes/Lines: There is a RIGHT basilar chest tube."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"sternotomy wires\", \"location\": \"bones/soft tissues\", \"extent\": \"intact\", \"polarity\": \"positive\"}]",
+    "output": "Bones/Soft Tissues: Sternotomy wires are intact."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"bones\", \"location\": null, \"extent\": \"unchanged\", \"polarity\": \"positive\"}]",
+    "output": "Bones/Soft Tissues: The bones are unchanged."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"interstitial pulmonary edema\", \"location\": null, \"extent\": \"stable\", \"polarity\": \"positive\"}]",
+    "output": "There is stable interstitial pulmonary edema."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"mediastinal drains\", \"location\": \"mediastinum\", \"extent\": null, \"polarity\": \"positive\"}]",
+    "output": "Devices/Tubes/Lines: There are mediastinal drains."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"lung volumes\", \"location\": null, \"extent\": \"low\", \"polarity\": \"positive\"}]",
+    "output": "The lung volumes are low."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"pneumothorax\", \"location\": null, \"extent\": null, \"polarity\": \"negative\"}]",
+    "output": "No pneumothorax."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"multifocal patchy opacities\", \"location\": \"RIGHT lung\", \"extent\": \"stable\", \"polarity\": \"positive\"}]",
+    "output": "Lungs: There are stable multifocal patchy opacities in the RIGHT lung, predominantly in the mid and lower lung zones."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"pleural effusion\", \"location\": \"LEFT pleura\", \"extent\": \"increased small\", \"polarity\": \"positive\"}]",
+    "output": "Pleura: Increased small LEFT pleural effusion."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"pleural effusions\", \"location\": \"bilateral\", \"extent\": \"small\", \"polarity\": \"positive\"}]",
+    "output": "Stable bilateral small pleural effusions."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"pulmonary fibrosis\", \"location\": \"lungs\", \"extent\": \"stable changes\", \"polarity\": \"positive\"}, {\"lesion\": \"traction bronchiectasis\", \"location\": \"lungs\", \"extent\": null, \"polarity\": \"positive\"}]",
+    "output": "Lungs: There are stable changes of pulmonary fibrosis with reticulation and traction bronchiectasis."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"cardiac silhouette\", \"location\": \"heart/mediastinum\", \"extent\": \"stable\", \"polarity\": \"positive\"}]",
+    "output": "Stable cardiac silhouette."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"interstitial pulmonary edema\", \"location\": \"lungs\", \"extent\": \"stable\", \"polarity\": \"positive\"}]",
+    "output": "Lungs: Stable interstitial pulmonary edema."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"postsurgical changes\", \"location\": \"heart and mediastinum\", \"extent\": \"stable\", \"polarity\": \"positive\"}]",
+    "output": "Heart/Mediastinum: Stable postsurgical changes in the heart and mediastinum."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"pleural effusion\", \"location\": \"pleura\", \"extent\": null, \"polarity\": \"negative\"}, {\"lesion\": \"pneumothorax\", \"location\": \"pleura\", \"extent\": null, \"polarity\": \"negative\"}]",
+    "output": "There is no pleural effusion or pneumothorax."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"pleural condition\", \"location\": \"pleura\", \"extent\": null, \"polarity\": \"positive\"}]",
+    "output": "Pleura: Normal."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"bilateral small pleural effusions\", \"location\": \"pleura\", \"extent\": \"stable\", \"polarity\": \"positive\"}, {\"lesion\": \"pneumothorax\", \"location\": \"pleura\", \"extent\": null, \"polarity\": \"negative\"}]",
+    "output": "Pleura: Stable bilateral small pleural effusions without pneumothorax."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"cardiac silhouette\", \"location\": \"heart/mediastinum\", \"extent\": \"stable\", \"polarity\": \"positive\"}]",
+    "output": "Heart/Mediastinum: Stable cardiac silhouette."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"ICD\", \"location\": \"LEFT chest wall\", \"extent\": null, \"polarity\": \"positive\"}, {\"lesion\": \"electrodes\", \"location\": \"RIGHT atrium\", \"extent\": null, \"polarity\": \"positive\"}]",
+    "output": "Devices/Tubes/Lines: There is a LEFT chest wall ICD with electrodes in the RIGHT atrium, RIGHT ventricle and coronary sinus."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"patchy opacities\", \"location\": \"bibasilar\", \"extent\": null, \"polarity\": \"positive\"}]",
+    "output": "Lungs: There are bibasilar patchy opacities."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"cardiac silhouette\", \"location\": \"heart/mediastinum\", \"extent\": \"stable\", \"polarity\": \"positive\"}]",
+    "output": "Heart/Mediastinum: The cardiac silhouette is stable."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"cardiac silhouette\", \"location\": \"heart/mediastinum\", \"extent\": \"stable large\", \"polarity\": \"positive\"}]",
+    "output": "Heart/Mediastinum: Stable large cardiac silhouette."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"old healed fracture\", \"location\": \"LEFT clavicle\", \"extent\": null, \"polarity\": \"positive\"}]",
+    "output": "Bones/Soft Tissues: There is old healed fracture of the LEFT clavicle."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"lung volumes\", \"location\": \"lungs\", \"extent\": \"low\", \"polarity\": \"positive\"}]",
+    "output": "Lungs: The lung volumes are low."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"patchy opacities\", \"location\": \"LEFT lung base\", \"extent\": \"new\", \"polarity\": \"positive\"}]",
+    "output": "Lungs: There are new patchy opacities in the LEFT lung base."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"elevation of the LEFT hemidiaphragm\", \"location\": \"LEFT hemidiaphragm\", \"extent\": \"persistent\", \"polarity\": \"positive\"}]",
+    "output": "Lungs: There is persistent elevation of the LEFT hemidiaphragm."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"degenerative changes\", \"location\": \"bones\", \"extent\": null, \"polarity\": \"positive\"}]",
+    "output": "Bones/Soft Tissues: There are degenerative changes in the bones."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"bones\", \"location\": null, \"extent\": \"unchanged\", \"polarity\": \"positive\"}, {\"lesion\": \"degenerative changes\", \"location\": \"bones/soft tissues\", \"extent\": null, \"polarity\": \"positive\"}]",
+    "output": "Bones/Soft Tissues: Bones are unchanged and there are degenerative changes."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"cardiac silhouette\", \"location\": \"heart/mediastinum\", \"extent\": \"stable\", \"polarity\": \"positive\"}]",
+    "output": "Heart/Mediastinum: Stable cardiac silhouette."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"atelectasis\", \"location\": \"LEFT lower lung\", \"extent\": \"stable\", \"polarity\": \"positive\"}, {\"lesion\": \"loculated LEFT pleural effusion\", \"location\": \"LEFT pleural\", \"extent\": null, \"polarity\": \"positive\"}]",
+    "output": "Lungs: There is stable atelectasis in the LEFT lower lung adjacent to the loculated LEFT pleural effusion."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"pulmonary edema\", \"location\": null, \"extent\": \"increased\", \"polarity\": \"positive\"}]",
+    "output": "Increased pulmonary edema."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"wedge resection\", \"location\": \"RIGHT lower lung\", \"extent\": null, \"polarity\": \"positive\"}]",
+    "output": "IMPRESSION: Status post wedge resection of the RIGHT lower lung."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"bones\", \"location\": null, \"extent\": \"unchanged\", \"polarity\": \"positive\"}, {\"lesion\": \"degenerative changes\", \"location\": null, \"extent\": null, \"polarity\": \"positive\"}]",
+    "output": "The bones are unchanged and there are degenerative changes."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"LEFT IJ catheter\", \"location\": \"inferior RIGHT atrium\", \"extent\": null, \"polarity\": \"positive\"}]",
+    "output": "The tip of the LEFT IJ catheter is in the inferior RIGHT atrium."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"pleural effusion\", \"location\": \"pleura\", \"extent\": null, \"polarity\": \"negative\"}, {\"lesion\": \"pneumothorax\", \"location\": \"pleura\", \"extent\": null, \"polarity\": \"negative\"}]",
+    "output": "Pleura: There is no pleural effusion or pneumothorax."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"low lung volumes\", \"location\": \"lungs\", \"extent\": null, \"polarity\": \"positive\"}, {\"lesion\": \"streaky basilar opacities\", \"location\": \"lungs\", \"extent\": \"greatest on the left\", \"polarity\": \"positive\"}]",
+    "output": "Lungs: Low lung volumes with streaky basilar opacities, greatest on the left."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"enlarged cardiac silhouette\", \"location\": \"heart/mediastinum\", \"extent\": \"stable\", \"polarity\": \"positive\"}]",
+    "output": "Stable enlarged cardiac silhouette."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"pleural effusions\", \"location\": \"pleura\", \"extent\": \"increased bilateral\", \"polarity\": \"positive\"}, {\"lesion\": \"pneumothorax\", \"location\": \"pleura\", \"extent\": null, \"polarity\": \"negative\"}]",
+    "output": "Pleura: Increased bilateral pleural effusions without pneumothorax."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"retrocardiac consolidation\", \"location\": null, \"extent\": \"unchanged\", \"polarity\": \"positive\"}]",
+    "output": "Unchanged retrocardiac consolidation."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"epicardial pacing wires\", \"location\": null, \"extent\": null, \"polarity\": \"positive\"}]",
+    "output": "Devices/Tubes/Lines: There are epicardial pacing wires."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"\", \"location\": \"\", \"extent\": \"\", \"polarity\": \"negative\"}]",
+    "output": "Devices/Tubes/Lines: None."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"tracheostomy tube\", \"location\": null, \"extent\": null, \"polarity\": \"positive\"}]",
+    "output": "Devices/Tubes/Lines: There is a tracheostomy tube."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"patchy opacities\", \"location\": \"LEFT lower lobe\", \"extent\": \"persistent\", \"polarity\": \"positive\"}]",
+    "output": "Lungs: There are persistent patchy opacities in the LEFT lower lobe."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"pleural effusion\", \"location\": \"pleura\", \"extent\": null, \"polarity\": \"negative\"}, {\"lesion\": \"pneumothorax\", \"location\": \"pleura\", \"extent\": null, \"polarity\": \"negative\"}]",
+    "output": "Pleura: There is no pleural effusion or pneumothorax."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"heart\", \"location\": \"heart/mediastinum\", \"extent\": \"normal\", \"polarity\": \"positive\"}, {\"lesion\": \"mediastinum\", \"location\": \"heart/mediastinum\", \"extent\": \"normal\", \"polarity\": \"positive\"}]",
+    "output": "Heart/Mediastinum: Normal heart and mediastinum."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"pleural effusion\", \"location\": \"RIGHT pleura\", \"extent\": \"small\", \"polarity\": \"positive\"}, {\"lesion\": \"pneumothorax\", \"location\": null, \"extent\": null, \"polarity\": \"negative\"}]",
+    "output": "Small RIGHT pleural effusion without pneumothorax."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"scoliosis\", \"location\": \"spine\", \"extent\": \"with degenerative changes\", \"polarity\": \"positive\"}]",
+    "output": "Bones/Soft Tissues: There is scoliosis of the spine with degenerative changes."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"lung volumes\", \"location\": null, \"extent\": \"low\", \"polarity\": \"positive\"}]",
+    "output": "Lungs: The lung volumes are low."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"bones\", \"location\": null, \"extent\": \"unchanged\", \"polarity\": \"positive\"}, {\"lesion\": \"degenerative changes\", \"location\": null, \"extent\": null, \"polarity\": \"positive\"}]",
+    "output": "Bones are unchanged and there are degenerative changes."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"pulmonary edema\", \"location\": \"RIGHT lung\", \"extent\": null, \"polarity\": \"negative\"}, {\"lesion\": \"consolidation\", \"location\": \"RIGHT lung\", \"extent\": null, \"polarity\": \"negative\"}]",
+    "output": "There is no evidence of pulmonary edema or consolidation RIGHT lung."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"pleural effusion\", \"location\": \"LEFT pleura\", \"extent\": \"small\", \"polarity\": \"positive\"}, {\"lesion\": \"pneumothorax\", \"location\": \"pleura\", \"extent\": null, \"polarity\": \"negative\"}]",
+    "output": "Pleura: Stable small LEFT pleural effusion without pneumothorax."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"heart transplant\", \"location\": null, \"extent\": null, \"polarity\": \"positive\"}]",
+    "output": "Status post heart transplant."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"pleural effusions\", \"location\": \"bilateral\", \"extent\": \"stable\", \"polarity\": \"positive\"}]",
+    "output": "Stable bilateral pleural effusions."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"pleural effusion\", \"location\": \"LEFT\", \"extent\": \"small\", \"polarity\": \"positive\"}, {\"lesion\": \"patchy atelectasis\", \"location\": \"LEFT lower lobe\", \"extent\": \"stable\", \"polarity\": \"positive\"}]",
+    "output": "Stable small LEFT pleural effusion is stable patchy atelectasis in the LEFT lower lobe."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"enteric tube\", \"location\": \"stomach\", \"extent\": null, \"polarity\": \"positive\"}]",
+    "output": "Enteric tube reached the stomach, the tip is not included."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"atherosclerotic calcifications\", \"location\": \"thoracic aorta\", \"extent\": null, \"polarity\": \"positive\"}]",
+    "output": "Heart/Mediastinum: There are atherosclerotic calcifications of the thoracic aorta."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"sternotomy wires\", \"location\": null, \"extent\": \"intact\", \"polarity\": \"positive\"}]",
+    "output": "Bones/Soft Tissues: Sternotomy wires are intact."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"old infarcts\", \"location\": \"LEFT clavicle\", \"extent\": null, \"polarity\": \"positive\"}]",
+    "output": "Bones/Soft Tissues: There is old infarcts of the LEFT clavicle."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"cardiac silhouette\", \"location\": \"heart/mediastinum\", \"extent\": \"stable\", \"polarity\": \"positive\"}]",
+    "output": "Heart/Mediastinum: Stable cardiac silhouette."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"LEFT pleural effusion\", \"location\": null, \"extent\": \"loculated\", \"polarity\": \"positive\"}]",
+    "output": "Pleura: The LEFT pleural effusion is loculated."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"pleural effusion\", \"location\": null, \"extent\": \"small\", \"polarity\": \"positive\"}]",
+    "output": "Stable small pleural effusions."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"biapical pneumothoraces\", \"location\": \"LEFT\", \"extent\": \"4 mm\", \"polarity\": \"positive\"}, {\"lesion\": \"biapical pneumothoraces\", \"location\": \"RIGHT\", \"extent\": \"6 mm\", \"polarity\": \"positive\"}]",
+    "output": "There are stable small biapical pneumothoraces, measuring 4 mm on the LEFT and 6 mm on the RIGHT."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"pulmonary edema\", \"location\": null, \"extent\": \"stable\", \"polarity\": \"positive\"}, {\"lesion\": \"bilateral pleural effusions\", \"location\": null, \"extent\": \"large on the RIGHT\", \"polarity\": \"positive\"}]",
+    "output": "Stable pulmonary edema and bilateral pleural effusions, large on the RIGHT."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"wedge resection\", \"location\": \"RIGHT lung\", \"extent\": null, \"polarity\": \"positive\"}]",
+    "output": "Lungs: Status post wedge resection of the RIGHT lung."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"pleural effusions\", \"location\": \"bilateral pleura\", \"extent\": \"stable, greater on the LEFT\", \"polarity\": \"positive\"}]",
+    "output": "IMPRESSION: Stable bilateral small pleural effusions, greater on the LEFT."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"pulmonary edema\", \"location\": null, \"extent\": \"stable\", \"polarity\": \"positive\"}]",
+    "output": "There is stable pulmonary edema."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"enteric tube\", \"location\": \"stomach\", \"extent\": \"reached the stomach\", \"polarity\": \"positive\"}]",
+    "output": "Devices/Tubes/Lines: Enteric tube reached the stomach, the tip is in the body of stomach."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"partial atelectasis\", \"location\": \"left lower lobe\", \"extent\": \"persistent\", \"polarity\": \"positive\"}]",
+    "output": "IMPRESSION: Persistent partial atelectasis of the LEFT lower lobe."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"bones\", \"location\": null, \"extent\": \"unchanged\", \"polarity\": \"positive\"}]",
+    "output": "Bones/Soft Tissues: The bones are unchanged."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"pulmonary edema\", \"location\": null, \"extent\": \"stable\", \"polarity\": \"positive\"}]",
+    "output": "IMPRESSION: Stable pulmonary edema."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"lung volumes\", \"location\": null, \"extent\": \"low\", \"polarity\": \"positive\"}, {\"lesion\": \"pulmonary edema\", \"location\": \"interstitial\", \"extent\": null, \"polarity\": \"positive\"}]",
+    "output": "Low lung volumes with interstitial pulmonary edema."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"lung volumes\", \"location\": \"lungs\", \"extent\": \"low\", \"polarity\": \"negative\"}]",
+    "output": "Lungs: The lung volumes are low."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"pulmonary edema\", \"location\": null, \"extent\": \"decreased\", \"polarity\": \"positive\"}]",
+    "output": "Decreased pulmonary edema."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"degenerative changes\", \"location\": \"bones/soft tissues\", \"extent\": null, \"polarity\": \"positive\"}]",
+    "output": "Bones/Soft Tissues: There are degenerative changes."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"enteric tube\", \"location\": \"stomach\", \"extent\": null, \"polarity\": \"positive\"}]",
+    "output": "Enteric tube reached the stomach, the tip is not included."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"pleural effusion\", \"location\": \"LEFT pleura\", \"extent\": \"small\", \"polarity\": \"positive\"}, {\"lesion\": \"pneumothorax\", \"location\": \"pleura\", \"extent\": null, \"polarity\": \"negative\"}]",
+    "output": "Pleura: Stable small LEFT pleural effusion. No pneumothorax."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"lung volumes\", \"location\": null, \"extent\": \"low\", \"polarity\": \"positive\"}]",
+    "output": "Lungs: The lung volumes are low."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"bilateral lung transplant\", \"location\": null, \"extent\": null, \"polarity\": \"positive\"}]",
+    "output": "Status post bilateral lung transplant."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"ET tube\", \"location\": \"above the carina\", \"extent\": \"3.2 cm\", \"polarity\": \"positive\"}]",
+    "output": "ET tube terminates 3.2 cm above the carina."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"pleural effusions\", \"location\": \"pleura\", \"extent\": \"stable bilateral small\", \"polarity\": \"positive\"}, {\"lesion\": \"pneumothorax\", \"location\": \"pleura\", \"extent\": null, \"polarity\": \"negative\"}]",
+    "output": "Pleura: Stable bilateral small pleural effusions without pneumothorax."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"focal consolidation\", \"location\": \"lungs\", \"extent\": null, \"polarity\": \"negative\"}, {\"lesion\": \"pulmonary edema\", \"location\": \"lungs\", \"extent\": null, \"polarity\": \"negative\"}]",
+    "output": "Lungs: There is no focal consolidation or pulmonary edema."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"sternotomy wires\", \"location\": \"bones/soft tissues\", \"extent\": \"intact\", \"polarity\": \"positive\"}]",
+    "output": "Bones/Soft Tissues: Sternotomy wires are intact."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"retrocadiac opacity\", \"location\": \"lungs\", \"extent\": \"stable\", \"polarity\": \"positive\"}]",
+    "output": "Lungs: Stable retrocardiac opacity."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"bandlike opacities\", \"location\": \"RIGHT lower lung zone\", \"extent\": \"minimal\", \"polarity\": \"positive\"}]",
+    "output": "Lungs: Minimal bandlike opacities in the RIGHT lower lung zone."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"cardiac silhouette\", \"location\": \"heart/mediastinum\", \"extent\": \"stable\", \"polarity\": \"positive\"}]",
+    "output": "Heart/Mediastinum: The cardiac silhouette is stable."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"bones\", \"location\": null, \"extent\": \"unchanged\", \"polarity\": \"positive\"}, {\"lesion\": \"degenerative changes\", \"location\": \"bones/soft tissues\", \"extent\": null, \"polarity\": \"positive\"}]",
+    "output": "Bones/Soft Tissues: The bones are unchanged and there are degenerative changes."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"devices/tubes/lines\", \"location\": null, \"extent\": null, \"polarity\": \"negative\"}]",
+    "output": "Devices/Tubes/Lines: None."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"pleural effusion\", \"location\": \"pleura\", \"extent\": null, \"polarity\": \"negative\"}, {\"lesion\": \"pneumothorax\", \"location\": \"pleura\", \"extent\": null, \"polarity\": \"negative\"}]",
+    "output": "Pleura: There is no pleural effusion or pneumothorax."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"atherosclerotic calcification\", \"location\": \"thoracic aorta\", \"extent\": null, \"polarity\": \"positive\"}]",
+    "output": "There are atherosclerotic calcification thoracic aorta."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"cardiac silhouette\", \"location\": \"heart/mediastinum\", \"extent\": \"within normal limits for age and technique\", \"polarity\": \"positive\"}]",
+    "output": "Heart/Mediastinum: The cardiac silhouette is within normal limits for age and technique."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"pleural effusion\", \"location\": \"LEFT\", \"extent\": \"decreased now small\", \"polarity\": \"positive\"}, {\"lesion\": \"aeration\", \"location\": \"LEFT lower lung\", \"extent\": \"improved\", \"polarity\": \"positive\"}]",
+    "output": "IMPRESSION: Decreased now small LEFT pleural effusion with improved aeration of the LEFT lower lung."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"bones\", \"location\": null, \"extent\": \"unchanged\", \"polarity\": \"positive\"}]",
+    "output": "The bones are unchanged."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"degenerative changes\", \"location\": null, \"extent\": null, \"polarity\": \"positive\"}]",
+    "output": "There are degenerative changes."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"degenerative changes\", \"location\": \"bones/soft tissues\", \"extent\": null, \"polarity\": \"positive\"}]",
+    "output": "Bones/Soft Tissues: There are degenerative changes."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"patchy pneumonia\", \"location\": \"LEFT lower lobe\", \"extent\": \"new\", \"polarity\": \"positive\"}]",
+    "output": "IMPRESSION: New patchy pneumonia in the LEFT lower lobe."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"osteoblastic lesions\", \"location\": \"bones\", \"extent\": \"multifocal stable\", \"polarity\": \"positive\"}]",
+    "output": "There are stable multifocal osteoblastic lesions in the bones."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"cardiac silhouette\", \"location\": \"heart/mediastinum\", \"extent\": \"stable\", \"polarity\": \"positive\"}]",
+    "output": "Heart/Mediastinum: Stable cardiac silhouette."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"atelectasis\", \"location\": \"lungs\", \"extent\": \"likely\", \"polarity\": \"positive\"}]",
+    "output": "Likely atelectasis underlying lungs secondary to pleural effusions."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"bones\", \"location\": null, \"extent\": \"unchanged\", \"polarity\": \"positive\"}]",
+    "output": "The bones are unchanged."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"Port-A-Cath\", \"location\": \"RIGHT atrium\", \"extent\": null, \"polarity\": \"positive\"}]",
+    "output": "The tip of the RIGHT Port-A-Cath is in the RIGHT atrium."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"pneumothorax\", \"location\": \"pleura\", \"extent\": null, \"polarity\": \"negative\"}]",
+    "output": "Pleura: No pneumothorax."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"pneumothorax\", \"location\": null, \"extent\": null, \"polarity\": \"negative\"}]",
+    "output": "No pneumothorax."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"heart\", \"location\": \"heart/mediastinum\", \"extent\": \"normal\", \"polarity\": \"positive\"}, {\"lesion\": \"mediastinum\", \"location\": \"heart/mediastinum\", \"extent\": \"normal\", \"polarity\": \"positive\"}]",
+    "output": "Normal heart and mediastinum."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"skeletal abnormality\", \"location\": \"bones/soft tissues\", \"extent\": null, \"polarity\": \"negative\"}]",
+    "output": "Bones/Soft Tissues: There is no significant skeletal abnormality."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"lung volumes\", \"location\": \"lungs\", \"extent\": \"low\", \"polarity\": \"positive\"}]",
+    "output": "Lungs: The lung volumes are low."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"bones\", \"location\": null, \"extent\": \"unchanged\", \"polarity\": \"positive\"}, {\"lesion\": \"degenerative changes\", \"location\": \"bones/soft tissues\", \"extent\": null, \"polarity\": \"positive\"}]",
+    "output": "Bones/Soft Tissues: The bones are unchanged and there are degenerative changes."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"skeletal abnormality\", \"location\": \"bones/soft tissues\", \"extent\": null, \"polarity\": \"negative\"}]",
+    "output": "Bones/Soft Tissues: No significant skeletal abnormality."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"LEFT pleural effusion\", \"location\": null, \"extent\": \"small\", \"polarity\": \"positive\"}, {\"lesion\": \"partial LEFT lower lobe atelectasis\", \"location\": null, \"extent\": null, \"polarity\": \"positive\"}]",
+    "output": "IMPRESSION: Stable small LEFT pleural effusion and partial LEFT lower lobe atelectasis."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"tracheostomy tube\", \"location\": null, \"extent\": null, \"polarity\": \"positive\"}]",
+    "output": "There is a tracheostomy tube."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"bones\", \"location\": null, \"extent\": \"unchanged\", \"polarity\": \"positive\"}]",
+    "output": "Bones/Soft Tissues: The bones are unchanged."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"patchy opacities\", \"location\": \"lower lungs\", \"extent\": \"stable\", \"polarity\": \"positive\"}]",
+    "output": "There are stable patchy opacities in the lower lungs."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"patchy atelectasis\", \"location\": \"LEFT lower lobe\", \"extent\": \"new\", \"polarity\": \"positive\"}]",
+    "output": "New patchy atelectasis in the LEFT lower lobe."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"cardiac valve replacement\", \"location\": \"heart/mediastinum\", \"extent\": null, \"polarity\": \"positive\"}, {\"lesion\": \"enlargement of the cardiac and mediastinal silhouette\", \"location\": \"heart/mediastinum\", \"extent\": \"stable\", \"polarity\": \"positive\"}]",
+    "output": "Heart/Mediastinum: Status post cardiac valve replacement and CABG. Stable enlargement of the cardiac and mediastinal silhouette."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"patchy consolidation\", \"location\": \"LEFT lower lung\", \"extent\": \"new\", \"polarity\": \"positive\"}]",
+    "output": "Lungs: There is new patchy consolidation in the LEFT lower lung."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"sternotomy wires\", \"location\": null, \"extent\": \"intact\", \"polarity\": \"positive\"}]",
+    "output": "Sternotomy wires are intact."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"cardiac silhouette\", \"location\": \"heart/mediastinum\", \"extent\": \"within normal limits\", \"polarity\": \"positive\"}]",
+    "output": "Heart/Mediastinum: The cardiac silhouette is within normal limits."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"aeration\", \"location\": \"RIGHT upper lung\", \"extent\": \"improved\", \"polarity\": \"positive\"}]",
+    "output": "Improved aeration of the RIGHT upper lung."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"patchy atelectasis\", \"location\": \"LEFT lower lobe\", \"extent\": \"new\", \"polarity\": \"positive\"}, {\"lesion\": \"LEFT pleural effusion\", \"location\": null, \"extent\": \"small\", \"polarity\": \"positive\"}]",
+    "output": "New patchy atelectasis of the LEFT lower lobe and new small LEFT pleural effusion."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"enteric tube\", \"location\": \"stomach\", \"extent\": null, \"polarity\": \"positive\"}]",
+    "output": "Enteric tube reached the stomach, the tip is not included."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"patchy opacities\", \"location\": \"LEFT lower lung zone\", \"extent\": \"stable\", \"polarity\": \"positive\"}]",
+    "output": "Lungs: There are stable patchy opacities in the LEFT lower lung zone."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"postsurgical changes\", \"location\": null, \"extent\": \"expected\", \"polarity\": \"positive\"}]",
+    "output": "There are expected postsurgical changes."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"bilateral small pleural effusions\", \"location\": \"pleura\", \"extent\": \"stable\", \"polarity\": \"positive\"}, {\"lesion\": \"pneumothorax\", \"location\": \"pleura\", \"extent\": null, \"polarity\": \"negative\"}]",
+    "output": "Pleura: Stable bilateral small pleural effusions, no pneumothorax."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"devices/tubes/lines\", \"location\": null, \"extent\": null, \"polarity\": \"negative\"}]",
+    "output": "Devices/Tubes/Lines: None."
+  },
+  {
+    "instruction": "You are a radiology expert. Your task is to transform structured findings into report sentences.",
+    "input": "[{\"lesion\": \"lung volumes\", \"location\": null, \"extent\": \"low\", \"polarity\": \"positive\"}]",
+    "output": "The lung volumes are low."
+  }
+]

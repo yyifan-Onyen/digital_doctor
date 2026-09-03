@@ -8,23 +8,19 @@ from typing import Callable, Dict, List, Optional, Sequence, Set, Tuple
 
 from ..core.text_utils import clean_inline
 from ..services.openai_client import call_model
+from ..skills.ocd_erp.definition import (
+    FORMULATION_FIELDS as DEFAULT_FORMULATION_FIELDS,
+    PHASE_SPECS as DEFAULT_PHASE_SPECS,
+)
+from ..skills.ocd_erp.tracking_policy import (
+    CONTEXT_POLICY_LINES as DEFAULT_CONTEXT_POLICY_LINES,
+    apply_structured_phase_floors as default_phase_floor_policy,
+    build_formulation_update_prompt as default_formulation_prompt_builder,
+    build_phase_progress_prompt as default_phase_prompt_builder,
+)
 
 
-FORMULATION_FIELDS: List[Tuple[str, str]] = [
-    ("obsession", "Primary obsession"),
-    ("trigger", "Common trigger"),
-    ("feared_consequence", "Feared consequence"),
-    ("compulsion", "Compulsion or ritual"),
-    ("avoidance", "Avoidance pattern"),
-    ("reassurance_seeking", "Reassurance seeking"),
-    ("family_accommodation", "Family accommodation"),
-    ("insight", "Insight"),
-    ("homework", "Homework status"),
-    ("wins", "Recent win"),
-    ("stuck_points", "Current stuck point"),
-]
-FORMULATION_LABELS = dict(FORMULATION_FIELDS)
-FORMULATION_FIELD_NAMES = {name for name, _ in FORMULATION_FIELDS}
+FORMULATION_FIELDS: List[Tuple[str, str]] = list(DEFAULT_FORMULATION_FIELDS)
 TrackerEventWriter = Callable[[str, Dict[str, object]], None]
 _VALID_PHASE_STATUSES = {"pending", "active", "completed", "blocked", "contraindicated"}
 _BUY_IN_EVIDENCE_RE = re.compile(
@@ -71,13 +67,18 @@ class FormulationFieldState:
     last_updated_turn: Optional[int] = None
 
 
-def _default_formulation_fields() -> Dict[str, FormulationFieldState]:
-    return {name: FormulationFieldState() for name, _ in FORMULATION_FIELDS}
-
-
 @dataclass
 class CaseFormulation:
-    fields: Dict[str, FormulationFieldState] = field(default_factory=_default_formulation_fields)
+    fields: Dict[str, FormulationFieldState] = field(default_factory=dict)
+    field_definitions: Sequence[Tuple[str, str]] = field(
+        default_factory=lambda: tuple(FORMULATION_FIELDS)
+    )
+
+    def __post_init__(self) -> None:
+        if not self.fields:
+            self.fields = {
+                name: FormulationFieldState() for name, _ in self.field_definitions
+            }
 
     def apply_updates(
         self,
@@ -86,6 +87,7 @@ class CaseFormulation:
         min_confidence: float,
     ) -> List[Dict[str, object]]:
         applied: List[Dict[str, object]] = []
+        labels = dict(self.field_definitions)
         for item in updates:
             field_name = str(item.get("field", "")).strip()
             if field_name not in self.fields:
@@ -113,7 +115,7 @@ class CaseFormulation:
             applied.append(
                 {
                     "field": field_name,
-                    "label": FORMULATION_LABELS.get(field_name, field_name),
+                    "label": labels.get(field_name, field_name),
                     "value": value,
                     "confidence": round(confidence, 4),
                     "evidence": evidence,
@@ -126,7 +128,7 @@ class CaseFormulation:
 
     def render_context(self) -> str:
         lines: List[str] = []
-        for field_name, label in FORMULATION_FIELDS:
+        for field_name, label in self.field_definitions:
             state = self.fields[field_name]
             if not state.value:
                 continue
@@ -135,7 +137,7 @@ class CaseFormulation:
 
     def snapshot(self) -> Dict[str, object]:
         payload = []
-        for field_name, label in FORMULATION_FIELDS:
+        for field_name, label in self.field_definitions:
             state = self.fields[field_name]
             payload.append(
                 {
@@ -149,7 +151,7 @@ class CaseFormulation:
             )
         return {
             "filled_count": len(self.filled_fields()),
-            "total_fields": len(FORMULATION_FIELDS),
+            "total_fields": len(self.field_definitions),
             "fields": payload,
         }
 
@@ -237,119 +239,18 @@ def load_session_config(path: Optional[str]) -> Tuple[str, Optional[Set[int]]]:
 
 
 def _phase_specs() -> List[Dict[str, object]]:
-    return [
-        {
-            "phase_id": 1,
-            "slug": "assessment",
-            "title": "Assessment",
-            "description": "Clarify symptom pattern, compulsions, triggers, impairment, and immediate fit for an ERP workflow.",
-            "goals": [
-                "Identify the patient's current obsessional theme and main rituals.",
-                "Clarify recent triggers, distress pattern, and functional impact.",
-                "Surface issues that may need a different level of care or human review.",
-            ],
-            "exit_criteria": [
-                "The clinician can summarize the OCD problem in concrete behavioral terms.",
-                "The immediate session target is clear enough to move into formulation.",
-            ],
-            "legacy_ids": [],
-        },
-        {
-            "phase_id": 2,
-            "slug": "formulation",
-            "title": "Formulation",
-            "description": "Organize the case into obsession, trigger, feared consequence, rituals, avoidance, and maintaining factors.",
-            "goals": [
-                "Translate the dialogue into a structured OCD formulation.",
-                "Name the learning target instead of only describing symptoms.",
-                "Highlight reassurance seeking, accommodation, and stuck points when present.",
-            ],
-            "exit_criteria": [
-                "Core formulation fields are populated well enough to guide intervention.",
-                "The next move can be linked to a specific trigger-fear-ritual loop.",
-            ],
-            "legacy_ids": [],
-        },
-        {
-            "phase_id": 3,
-            "slug": "buy_in",
-            "title": "ERP Buy-In",
-            "description": "Build a shared rationale for ERP and set expectations around uncertainty and response prevention.",
-            "goals": [
-                "Explain why learning, not immediate anxiety reduction, is the target.",
-                "Secure enough willingness to try ERP-consistent work.",
-            ],
-            "exit_criteria": [
-                "The patient shows at least tentative understanding or willingness to try ERP.",
-            ],
-            "legacy_ids": [1, 9],
-        },
-        {
-            "phase_id": 4,
-            "slug": "hierarchy",
-            "title": "Exposure Hierarchy",
-            "description": "Choose a concrete, graded target instead of jumping straight to peak fear.",
-            "goals": [
-                "Select one workable trigger or experiment for the next step.",
-                "Scale difficulty so the patient can approach rather than avoid.",
-            ],
-            "exit_criteria": [
-                "A concrete exposure target or graded homework step is agreed on.",
-            ],
-            "legacy_ids": [3],
-        },
-        {
-            "phase_id": 5,
-            "slug": "exposure",
-            "title": "Exposure and Response Prevention",
-            "description": "Carry out or coach a specific exposure while blocking rituals and checking feared outcomes against what happened.",
-            "goals": [
-                "Coach a specific approach behavior or review a recent exposure.",
-                "Block reassurance, escape, washing, checking, or other rituals.",
-                "Compare feared outcomes with actual outcomes.",
-            ],
-            "exit_criteria": [
-                "The turn contains an ERP-consistent action or review of one.",
-                "The response prevention target is explicit.",
-            ],
-            "legacy_ids": [2, 4, 5, 6, 8, 9, 10],
-        },
-        {
-            "phase_id": 6,
-            "slug": "homework_review",
-            "title": "Homework Review and Generalization",
-            "description": "Review what happened between sessions, reinforce wins, and adjust for adherence barriers.",
-            "goals": [
-                "Review whether the patient practiced independently.",
-                "Extract wins, barriers, and next-step adjustments.",
-                "Support generalization outside the session.",
-            ],
-            "exit_criteria": [
-                "There is a clear read on homework adherence and what to adjust next.",
-            ],
-            "legacy_ids": [7, 10],
-        },
-        {
-            "phase_id": 7,
-            "slug": "relapse_prevention",
-            "title": "Relapse Prevention",
-            "description": "Consolidate the self-directed plan, normalize lapses, and prepare for future spikes without ritualizing.",
-            "goals": [
-                "Reinforce self-directed ERP after setbacks.",
-                "Frame lapses as signals to resume practice, not proof of failure.",
-            ],
-            "exit_criteria": [
-                "The patient leaves with a maintenance frame for future symptoms.",
-            ],
-            "legacy_ids": [11],
-        },
-    ]
+    # Kept as a compatibility function; the live source of truth is the
+    # versioned OCD/ERP skill bundle's phase_graph.json.
+    return [dict(item) for item in DEFAULT_PHASE_SPECS]
 
 
-def build_phase_plan(milestones: Sequence[Milestone]) -> List[Phase]:
+def build_phase_plan(
+    milestones: Sequence[Milestone],
+    phase_specs: Optional[Sequence[Dict[str, object]]] = None,
+) -> List[Phase]:
     legacy_by_id = {item.milestone_id: item for item in milestones}
     phases: List[Phase] = []
-    for spec in _phase_specs():
+    for spec in phase_specs or _phase_specs():
         goals = list(spec["goals"])
         legacy_ids: List[int] = []
         for legacy_id in spec["legacy_ids"]:
@@ -378,9 +279,18 @@ class MilestoneTracker:
         milestones: Sequence[Milestone],
         session_goal: str,
         event_writer: Optional[TrackerEventWriter] = None,
+        *,
+        phase_specs: Optional[Sequence[Dict[str, object]]] = None,
+        formulation_fields: Optional[Sequence[Tuple[str, str]]] = None,
+        formulation_prompt_builder=None,
+        phase_prompt_builder=None,
+        phase_floor_policy=None,
+        context_policy_lines: Optional[Sequence[str]] = None,
     ):
         self.milestones: List[Milestone] = list(milestones)
-        self.phases: List[Phase] = build_phase_plan(milestones)
+        self.phase_specs = [dict(item) for item in (phase_specs or _phase_specs())]
+        self.formulation_fields = list(formulation_fields or FORMULATION_FIELDS)
+        self.phases: List[Phase] = build_phase_plan(milestones, self.phase_specs)
         self.session_goal = session_goal
         self.event_writer = event_writer
         self.turn_idx = 0
@@ -389,7 +299,15 @@ class MilestoneTracker:
         }
         if self.phases:
             self.state[self.phases[0].phase_id].status = "active"
-        self.formulation = CaseFormulation()
+        self.formulation = CaseFormulation(field_definitions=tuple(self.formulation_fields))
+        self.formulation_prompt_builder = (
+            formulation_prompt_builder or default_formulation_prompt_builder
+        )
+        self.phase_prompt_builder = phase_prompt_builder or default_phase_prompt_builder
+        self.phase_floor_policy = phase_floor_policy or default_phase_floor_policy
+        self.context_policy_lines = tuple(
+            context_policy_lines or DEFAULT_CONTEXT_POLICY_LINES
+        )
         self.phase_completion_conf = float(os.getenv("PHASE_COMPLETION_CONF", "0.65"))
         self.phase_block_conf = float(os.getenv("PHASE_BLOCK_CONF", "0.70"))
         self.formulation_update_conf = float(os.getenv("FORMULATION_UPDATE_CONF", "0.60"))
@@ -439,48 +357,12 @@ class MilestoneTracker:
 
     def _extract_formulation_updates(self, user_text: str, history: str) -> List[Dict[str, object]]:
         formulation_block = self._formulation_summary()
-        prompt = f"""
-You are updating a structured OCD case formulation from one patient turn.
-Use only information that is explicit in the latest user message or the recent dialogue summary.
-
-Return strict JSON with this schema:
-{{
-  "updates": [
-    {{
-      "field": "obsession|trigger|feared_consequence|compulsion|avoidance|reassurance_seeking|family_accommodation|insight|homework|wins|stuck_points",
-      "value": "short clinician note",
-      "confidence": 0.0,
-      "evidence": "short quote or paraphrase"
-    }}
-  ]
-}}
-
-Rules:
-- Only include fields with new evidence.
-- Keep each value short and concrete.
-- Do not guess or infer hidden history.
-- "obsession" is the recurring feared theme or meaning, such as contamination,
-  illness, responsibility, harm, or taboo content. The patient does not need to
-  use the word "obsession". If they explicitly describe an object as contaminated
-  and feel driven to neutralize it, "contamination fear" is valid obsession evidence.
-- "trigger" is the situation, object, thought, image, or sensation that activates
-  the fear. "feared_consequence" is what the patient thinks may happen next.
-- "compulsion" includes an explicitly reported urge or repeated action intended to
-  neutralize distress, even when the patient has not performed it on this occasion.
-- If a core field is still empty and the recent dialogue contains explicit evidence,
-  include that update; do not leave a clearly stated trigger-fear-ritual loop blank.
-- "wins" means reported progress.
-- "stuck_points" means barriers, confusion, refusal, or repeated ritual pull.
-
-Current formulation:
-{formulation_block}
-
-Recent dialogue summary:
-{history if history else "(none)"}
-
-Latest user message:
-{user_text}
-""".strip()
+        prompt = self.formulation_prompt_builder(
+            formulation_block,
+            history,
+            user_text,
+            [name for name, _ in self.formulation_fields],
+        )
 
         raw = call_model(prompt, json_mode=True)
         normalized: List[Dict[str, object]] = []
@@ -494,7 +376,7 @@ Latest user message:
                     if not isinstance(item, dict):
                         continue
                     field_name = str(item.get("field", "")).strip()
-                    if field_name not in FORMULATION_FIELD_NAMES or field_name in seen:
+                    if field_name not in self.formulation.fields or field_name in seen:
                         continue
                     seen.add(field_name)
                     normalized.append(
@@ -540,7 +422,7 @@ Latest user message:
         observation = {
             "formulation_updates": applied,
             "formulation_filled_count": len(self.formulation.filled_fields()),
-            "formulation_total_fields": len(FORMULATION_FIELDS),
+            "formulation_total_fields": len(self.formulation_fields),
         }
         self._emit(
             "milestone_formulation_updated",
@@ -553,53 +435,13 @@ Latest user message:
         return observation
 
     def _infer_phase_progress(self, user_text: str, assistant_text: str) -> List[Dict[str, object]]:
-        infer_prompt = f"""
-You are evaluating phase progress for one ERP therapy turn.
-Use only the structured formulation, the phase definitions, and this turn's dialogue.
-
-Return strict JSON with this schema:
-{{
-  "phases": [
-    {{
-      "id": 1,
-      "status": "pending|active|completed|blocked|contraindicated",
-      "confidence": 0.0,
-      "evidence": "short quote or paraphrase",
-      "blocked_reason": "",
-      "contraindication_reason": ""
-    }}
-  ]
-}}
-
-Rules:
-- Include every phase exactly once.
-- The earliest unresolved phase is the planning priority.
-- Do not skip to later phases unless earlier phases are already sufficiently established.
-- Assessment can complete once the symptom theme, trigger, ritual/avoidance, distress,
-  and functional impact are concrete enough to summarize; every formulation field is not required.
-- Formulation can complete when a specific trigger-fear/meaning-ritual-maintenance loop
-  is available to guide the next move; every optional field is not required.
-- ERP Buy-In can complete when the patient demonstrates a tentative understanding of
-  the learning rationale or willingness to try, even if anxiety remains high.
-- Ordinary OCD anxiety or a high SUDS rating does not block phase progress when the
-  patient remains coherent and engaged.
-- Use "blocked" when the current phase is stalled.
-- Use "contraindicated" when that phase should stop and human review or a different step is needed.
-- Keep confidence in [0, 1].
-
-Session goal:
-{self.session_goal}
-
-Structured formulation:
-{self._formulation_summary()}
-
-Phases:
-{self._phase_lines()}
-
-Current turn:
-User: {user_text}
-Assistant: {assistant_text}
-""".strip()
+        infer_prompt = self.phase_prompt_builder(
+            self.session_goal,
+            self._formulation_summary(),
+            self._phase_lines(),
+            user_text,
+            assistant_text,
+        )
 
         raw = call_model(infer_prompt, json_mode=True)
         normalized: List[Dict[str, object]] = []
@@ -661,58 +503,13 @@ Assistant: {assistant_text}
         assistant_text: str,
     ) -> List[Dict[str, object]]:
         filled = set(self.formulation.filled_fields())
-        overrides: List[Dict[str, object]] = []
-        assessment_ready = (
-            self.turn_idx >= 4
-            and {"obsession", "trigger", "compulsion"}.issubset(filled)
-            and bool(filled & {"avoidance", "feared_consequence", "stuck_points", "insight"})
+        return self.phase_floor_policy(
+            self.turn_idx,
+            filled,
+            parsed,
+            user_text,
+            _BUY_IN_EVIDENCE_RE,
         )
-        formulation_ready = (
-            self.turn_idx >= 8
-            and {"obsession", "trigger", "feared_consequence", "compulsion"}.issubset(filled)
-            and bool(filled & {"avoidance", "stuck_points", "insight"})
-        )
-
-        if assessment_ready:
-            parsed[1] = {
-                "status": "completed",
-                "confidence": 1.0,
-                "evidence": "Structured formulation contains a concrete obsession-trigger-compulsion pattern and impact context.",
-                "blocked_reason": "",
-                "contraindication_reason": "",
-            }
-            overrides.append({"phase_id": 1, "reason": "assessment_structured_floor"})
-        if formulation_ready:
-            parsed[1] = {
-                "status": "completed",
-                "confidence": 1.0,
-                "evidence": "Assessment prerequisites remain satisfied.",
-                "blocked_reason": "",
-                "contraindication_reason": "",
-            }
-            parsed[2] = {
-                "status": "completed",
-                "confidence": 1.0,
-                "evidence": "Structured formulation contains trigger, feared consequence, ritual, and a maintaining or impact factor.",
-                "blocked_reason": "",
-                "contraindication_reason": "",
-            }
-            overrides.extend(
-                [
-                    {"phase_id": 1, "reason": "formulation_prerequisite_floor"},
-                    {"phase_id": 2, "reason": "formulation_structured_floor"},
-                ]
-            )
-        if formulation_ready and _BUY_IN_EVIDENCE_RE.search(user_text):
-            parsed[3] = {
-                "status": "completed",
-                "confidence": 1.0,
-                "evidence": "Patient expressed tentative willingness or accurately summarized the short-term/long-term ERP rationale.",
-                "blocked_reason": "",
-                "contraindication_reason": "",
-            }
-            overrides.append({"phase_id": 3, "reason": "buy_in_evidence_floor"})
-        return overrides
 
     def update(self, user_text: str, assistant_text: str) -> Dict[str, object]:
         target_before = self.next_target()
@@ -877,7 +674,7 @@ Assistant: {assistant_text}
             "transition": transition,
             "milestone_health": health,
             "formulation_filled_count": len(self.formulation.filled_fields()),
-            "formulation_total_fields": len(FORMULATION_FIELDS),
+            "formulation_total_fields": len(self.formulation_fields),
         }
         self._emit(
             "milestone_state_transition",
@@ -1006,12 +803,7 @@ Assistant: {assistant_text}
             lines.append(f"Current block: {blocked_reason}")
         lines.append("Structured case formulation:")
         lines.append(self._formulation_summary())
-        lines.append(
-            "Transition rule: address the smallest unmet current-phase criterion. If the latest patient evidence satisfies the current exit criteria, briefly consolidate that learning and bridge to the next phase shown above; otherwise remain in the current phase. Never announce phase labels to the patient or skip an unresolved phase."
-        )
-        lines.append(
-            "Constraint: avoid reassurance, stay ERP-consistent, and use at most one focused question or one concrete next step as allowed by the selected dialogue move and treatment-readiness policy."
-        )
+        lines.extend(self.context_policy_lines)
         return "\n".join(lines)
 
     def snapshot(self) -> Dict[str, object]:

@@ -100,6 +100,18 @@ def build_arg_parser() -> argparse.ArgumentParser:
         default=os.getenv("SESSION_CONFIG_PATH"),
         help="Optional session config JSON path.",
     )
+    parser.add_argument(
+        "--skill-id",
+        type=str,
+        default=os.getenv("CLINICAL_SKILL_ID", "ocd_erp"),
+        help="Pinned clinical skill identifier.",
+    )
+    parser.add_argument(
+        "--skill-version",
+        type=str,
+        default=os.getenv("CLINICAL_SKILL_VERSION"),
+        help="Optional exact clinical skill version; defaults to the latest registered version.",
+    )
     parser.add_argument("--user-id", type=str, default="user")
     parser.add_argument("--episode-id", type=str, default="session")
     parser.add_argument("--memory-path", type=str, default=DEFAULT_MEMORY_PATH)
@@ -218,13 +230,16 @@ def main() -> None:
         use_helper_model=args.use_helper_model,
         knowledge_tree_path=knowledge_tree_path,
         use_knowledge_tree=args.use_knowledge_tree,
+        skill_id=args.skill_id,
+        skill_version=args.skill_version,
     )
 
     helper_status = "on" if args.use_helper_model else "off"
     knowledge_status = "on" if args.use_knowledge_tree else "off"
     print(
         "Interactive OCD support agent "
-        f"[phase planning + helper {helper_status} + knowledge {knowledge_status}]. "
+        f"[skill {session.skill.manifest.skill_id}@{session.skill.manifest.version} + "
+        f"helper {helper_status} + knowledge {knowledge_status}]. "
         "Type 'exit' or 'quit' to stop."
     )
 

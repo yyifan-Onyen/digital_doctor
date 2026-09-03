@@ -8,49 +8,27 @@ from ..prompt import (
     DEFAULT_SYSTEM,
     FINAL_DRAFT_PROMPT_MILESTONE,
     FINAL_POLISH_PROMPT_MILESTONE,
-    TURN_MODE_PROMPT_MILESTONE,
     build_casual_chat_prompt,
 )
+from ..harness.contracts import GenerationSpec
 from ..services.openai_client import call_model
+from ..skills.ocd_erp.definition import (
+    VALID_RESPONSE_DEPTHS as SKILL_RESPONSE_DEPTHS,
+    VALID_RESPONSE_MOVES as SKILL_RESPONSE_MOVES,
+)
+from ..skills.ocd_erp.planning import (
+    decide_route as decide_ocd_erp_route,
+    fallback_response_move,
+    response_move_instructions as ocd_erp_response_move_instructions,
+)
 from ..tracking.milestones import MilestoneTracker
 from .text_utils import extract_final
 
 
 TraceWriter = Callable[[str, Dict[str, object]], None]
 
-VALID_RESPONSE_MOVES = {
-    "casual",
-    "acknowledge",
-    "reflect",
-    "clarify",
-    "assess",
-    "formulate",
-    "psychoeducation",
-    "build_buy_in",
-    "treatment_step",
-}
-VALID_RESPONSE_DEPTHS = {"brief", "standard", "structured"}
-_SHORT_BACKCHANNEL_RE = re.compile(
-    r"^\s*(?:yeah|yep|yes|mm+|mhm+|mm-hm|uh-huh|right|okay|ok|no|and|thanks?|thank you|dev)"
-    r"[\s.!?,…-]*$",
-    re.IGNORECASE,
-)
-_EXPLANATION_REQUEST_RE = re.compile(
-    r"\b(?:why|how come|what do you mean|can'?t remember|cannot remember|don'?t remember|"
-    r"do not remember|remind me|what can i expect)\b",
-    re.IGNORECASE,
-)
-_MEMORY_EXPLANATION_RE = re.compile(
-    r"\b(?:can'?t remember|cannot remember|don'?t remember|do not remember|"
-    r"not\s+(?:\w+\s+){0,3}remembering|remind me|what did we (?:say|discuss|decide|talk about))\b",
-    re.IGNORECASE,
-)
-_LOW_INFORMATION_RE = re.compile(r"^\s*[a-z][a-z'-]{0,11}[.!?…]*\s*$", re.IGNORECASE)
-_CLINICAL_HISTORY_RE = re.compile(
-    r"\b(?:ocd|anxiety|distress|trigger|urge|wash|ritual|compulsion|exposure|"
-    r"contaminat|avoid|therap|fear)\w*\b",
-    re.IGNORECASE,
-)
+VALID_RESPONSE_MOVES = set(SKILL_RESPONSE_MOVES)
+VALID_RESPONSE_DEPTHS = set(SKILL_RESPONSE_DEPTHS)
 
 
 def clip_text(text: str, limit: int = 4000) -> str:
@@ -171,6 +149,7 @@ def generate_analysis_reply(
     response_move_block: str,
     candidate_name: str,
     trace: TraceWriter,
+    model_adapter: Optional[object] = None,
 ) -> str:
     draft_prompt = FINAL_DRAFT_PROMPT_MILESTONE.format(
         system_msg=DEFAULT_SYSTEM,
@@ -183,7 +162,17 @@ def generate_analysis_reply(
         treatment_policy_block=treatment_policy_block + "\n",
         user_msg=query,
     )
-    draft_raw = call_model(draft_prompt, json_mode=False)
+    if model_adapter is None:
+        draft_raw = call_model(draft_prompt, json_mode=False)
+    else:
+        draft_raw = model_adapter.generate(
+            GenerationSpec(
+                stage="draft",
+                prompt=draft_prompt,
+                json_mode=False,
+                candidate_name=candidate_name,
+            )
+        )
     draft_text = extract_final(draft_raw)
     trace(
         "draft_generated",
@@ -207,7 +196,17 @@ def generate_analysis_reply(
         treatment_policy_block=treatment_policy_block,
         draft_text=draft_text,
     )
-    final_raw = call_model(polish_prompt, json_mode=False)
+    if model_adapter is None:
+        final_raw = call_model(polish_prompt, json_mode=False)
+    else:
+        final_raw = model_adapter.generate(
+            GenerationSpec(
+                stage="polish",
+                prompt=polish_prompt,
+                json_mode=False,
+                candidate_name=candidate_name,
+            )
+        )
     final_text = extract_final(final_raw).strip()
     if not final_text:
         final_text = draft_text.strip()
@@ -267,35 +266,11 @@ Newly archived dialogue:
 
 
 def _fallback_response_move(query: str, mode: str) -> str:
-    if mode == "chat":
-        return "casual"
-    if _SHORT_BACKCHANNEL_RE.match(query):
-        return "acknowledge"
-    if _EXPLANATION_REQUEST_RE.search(query):
-        return "psychoeducation"
-    if "?" in query:
-        return "clarify"
-    return "assess"
+    return fallback_response_move(query, mode)
 
 
 def response_move_instructions(route: Mapping[str, str]) -> str:
-    move = str(route.get("response_move", "assess"))
-    depth = str(route.get("depth", "standard"))
-    guidance = {
-        "casual": "Reply as an ordinary warm conversational partner; do not introduce clinical structure.",
-        "acknowledge": "Treat the short backchannel as continuation, not new clinical content. Briefly acknowledge it, then continue the unfinished assessment, formulation, or buy-in thread from the immediately preceding dialogue. Do not restart with generic support; one focused question is allowed when it naturally continues that thread.",
-        "reflect": "Reflect the patient's specific experience or meaning without teaching, summarizing the whole case, or rushing onward.",
-        "clarify": "Resolve one ambiguity or answer the patient's narrow question directly; ask at most one clarification question.",
-        "assess": "Gather one clinically useful missing detail with a natural transition and at most one focused question.",
-        "formulate": "Collaboratively connect the relevant trigger, fear, ritual, relief, avoidance, or impairment into a concise shared pattern.",
-        "psychoeducation": "Give the smallest useful mechanism explanation that answers the patient's need, then pause or ask one focused check-in if useful.",
-        "build_buy_in": "Build an ERP rationale, explore the patient's concern, or invite willingness without pressuring them or jumping ahead.",
-        "treatment_step": "Offer or review at most one concrete treatment action, only if downstream treatment readiness permits it.",
-    }.get(move, "Gather one clinically useful missing detail with at most one focused question.")
-    return (
-        f"Response move: {move}. Response depth: {depth}. {guidance} "
-        "Sound like a person in a real conversation; do not mechanically restate the phase plan."
-    )
+    return ocd_erp_response_move_instructions(route)
 
 
 def decide_route(
@@ -304,83 +279,30 @@ def decide_route(
     trace: TraceWriter,
     milestone_context: str = "",
 ) -> Dict[str, str]:
-    route_prompt = TURN_MODE_PROMPT_MILESTONE.format(
-        milestone_block=milestone_context if milestone_context else "(not available)",
-        history_block=history if history else "(none)",
-        user_msg=query,
+    return decide_ocd_erp_route(
+        query,
+        history,
+        trace,
+        milestone_context,
+        model_call=call_model,
     )
-    raw = call_model(route_prompt, json_mode=True)
-    mode = "analysis"
-    reason = "default"
-    response_move = ""
-    depth = ""
-    try:
-        obj = json.loads(raw)
-        mode = str(obj.get("mode", "analysis")).strip().lower()
-        reason = str(obj.get("reason", "llm-router")).strip()
-        response_move = str(obj.get("response_move", "")).strip().lower()
-        depth = str(obj.get("depth", "")).strip().lower()
-    except json.JSONDecodeError:
-        lowered = query.lower().strip()
-        greetings = ("hi", "hello", "hey", "good morning", "good afternoon", "how are you", "thanks")
-        if any(lowered.startswith(item) for item in greetings) and len(lowered.split()) <= 8:
-            mode = "chat"
-            reason = "heuristic-greeting"
-        else:
-            mode = "analysis"
-            reason = "heuristic-default"
-
-    if mode in {"milestone", "clinical"}:
-        mode = "analysis"
-    if mode not in {"chat", "analysis"}:
-        mode = "analysis"
-    lowered = query.lower().strip()
-    greeting = any(
-        lowered.startswith(item)
-        for item in ("hi", "hello", "hey", "good morning", "good afternoon", "how are you", "thanks")
-    )
-    if (
-        mode == "chat"
-        and not greeting
-        and _LOW_INFORMATION_RE.match(query)
-        and _CLINICAL_HISTORY_RE.search(history)
-    ):
-        mode = "analysis"
-        response_move = "acknowledge"
-        depth = "brief"
-        reason = "short continuation inside clinical dialogue"
-    if response_move not in VALID_RESPONSE_MOVES:
-        response_move = _fallback_response_move(query, mode)
-    if mode == "chat":
-        response_move = "casual"
-    elif _MEMORY_EXPLANATION_RE.search(query):
-        response_move = "psychoeducation"
-        if depth not in VALID_RESPONSE_DEPTHS:
-            depth = "standard"
-    if depth not in VALID_RESPONSE_DEPTHS:
-        depth = "brief" if response_move in {"casual", "acknowledge", "reflect"} else "standard"
-    trace(
-        "route_decision",
-        {
-            "route_prompt": clip_text(route_prompt),
-            "route_raw": clip_text(raw),
-            "route_mode": mode,
-            "response_move": response_move,
-            "response_depth": depth,
-            "route_reason": reason,
-        },
-    )
-    return {
-        "mode": mode,
-        "response_move": response_move,
-        "depth": depth,
-        "reason": reason,
-    }
 
 
-def generate_chat_reply(query: str, history: str, route_reason: str, trace: TraceWriter) -> str:
+def generate_chat_reply(
+    query: str,
+    history: str,
+    route_reason: str,
+    trace: TraceWriter,
+    model_adapter: Optional[object] = None,
+) -> str:
     casual_prompt = build_casual_chat_prompt(query, history)
-    gen = extract_final(call_model(casual_prompt, json_mode=False)).strip()
+    if model_adapter is None:
+        raw = call_model(casual_prompt, json_mode=False)
+    else:
+        raw = model_adapter.generate(
+            GenerationSpec(stage="chat", prompt=casual_prompt, json_mode=False)
+        )
+    gen = extract_final(raw).strip()
     used_fallback = False
     if looks_like_instruction_list(gen):
         fallback_prompt = (
@@ -389,7 +311,13 @@ def generate_chat_reply(query: str, history: str, route_reason: str, trace: Trac
             f"Patient message:\n{query}\n\n"
             f"Draft to rewrite:\n{gen}"
         )
-        gen = extract_final(call_model(fallback_prompt, json_mode=False)).strip()
+        if model_adapter is None:
+            fallback_raw = call_model(fallback_prompt, json_mode=False)
+        else:
+            fallback_raw = model_adapter.generate(
+                GenerationSpec(stage="chat_rewrite", prompt=fallback_prompt, json_mode=False)
+            )
+        gen = extract_final(fallback_raw).strip()
         used_fallback = True
     if not gen:
         gen = "Good to see you. How are you feeling right now?"

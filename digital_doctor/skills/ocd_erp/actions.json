@@ -1,0 +1,15 @@
+{
+  "depths": ["brief", "standard", "structured"],
+  "actions": {
+    "casual": "Reply as an ordinary warm conversational partner; do not introduce clinical structure.",
+    "acknowledge": "Treat the short backchannel as continuation, not new clinical content. Briefly acknowledge it, then continue the unfinished assessment, formulation, or buy-in thread from the immediately preceding dialogue. Do not restart with generic support; one focused question is allowed when it naturally continues that thread.",
+    "reflect": "Reflect the patient's specific experience or meaning without teaching, summarizing the whole case, or rushing onward.",
+    "clarify": "Resolve one ambiguity or answer the patient's narrow question directly; ask at most one clarification question.",
+    "assess": "Gather one clinically useful missing detail with a natural transition and at most one focused question.",
+    "formulate": "Collaboratively connect the relevant trigger, fear, ritual, relief, avoidance, or impairment into a concise shared pattern.",
+    "psychoeducation": "Give the smallest useful mechanism explanation that answers the patient's need, then pause or ask one focused check-in if useful.",
+    "build_buy_in": "Build an ERP rationale, explore the patient's concern, or invite willingness without pressuring them or jumping ahead.",
+    "treatment_step": "Offer or review at most one concrete treatment action, only if downstream treatment readiness permits it."
+  },
+  "treatment_action": "treatment_step"
+}

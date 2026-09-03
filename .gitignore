@@ -40,3 +40,14 @@ train/LLaMA-Factory/data/*
 train/LLaMA-Factory/*.csv
 train/LLaMA-Factory/*_score.json
 train/LLaMA-Factory/dev/test_rag.json
+
+# Integrated training workspace: keep only registered OCD datasets in Git
+train/data/*
+!train/data/dataset_info.json
+!train/data/ocd_train.json
+!train/data/ocd_test.json
+!train/data/ocd_train_v2.json
+!train/data/ocd_test_v2.json
+train/dev/test_rag.json
+train/*.csv
+train/*_score.json

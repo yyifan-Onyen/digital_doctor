@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "OCD ERP clinical state",
+  "type": "object",
+  "properties": {
+    "obsession": {"type": "string", "title": "Primary obsession"},
+    "trigger": {"type": "string", "title": "Common trigger"},
+    "feared_consequence": {"type": "string", "title": "Feared consequence"},
+    "compulsion": {"type": "string", "title": "Compulsion or ritual"},
+    "avoidance": {"type": "string", "title": "Avoidance pattern"},
+    "reassurance_seeking": {"type": "string", "title": "Reassurance seeking"},
+    "family_accommodation": {"type": "string", "title": "Family accommodation"},
+    "insight": {"type": "string", "title": "Insight"},
+    "homework": {"type": "string", "title": "Homework status"},
+    "wins": {"type": "string", "title": "Recent win"},
+    "stuck_points": {"type": "string", "title": "Current stuck point"}
+  },
+  "additionalProperties": false,
+  "x-required-for-treatment": ["obsession", "trigger", "compulsion"]
+}

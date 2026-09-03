@@ -1,0 +1,16 @@
+{
+  "skill_id": "ocd_erp",
+  "name": "OCD Exposure and Response Prevention",
+  "version": "1.0.0",
+  "description": "Structured OCD formulation, phase planning, ERP action policy, and domain safety review.",
+  "entry_point": "digital_doctor.skills.ocd_erp.skill:OcdErpSkill",
+  "primary": true,
+  "capabilities": [
+    "risk_interpretation",
+    "clinical_state_tracking",
+    "action_planning",
+    "knowledge_retrieval",
+    "treatment_readiness",
+    "response_review"
+  ]
+}

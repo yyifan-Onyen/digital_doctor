@@ -2,9 +2,9 @@
 
 > A safety-aware, memory-augmented dialogue prototype for OCD and Exposure and Response Prevention (ERP) research.
 
-**Cumulative memory · Treatment buffering · Mood-aware risk routing · ERP safeguards · Human escalation**
+**Execution harness · Versioned clinical skills · Cumulative memory · ERP safeguards · Human escalation**
 
-Digital Doctor is a multi-turn clinical dialogue prototype designed to preserve continuity without rushing into treatment. It combines structured case formulation, transcript retrieval, PageIndex-backed knowledge retrieval, phased ERP planning, and layered safety controls in one auditable pipeline.
+Digital Doctor is a multi-turn clinical dialogue prototype built as a stable execution harness plus versioned clinical skills. The harness owns session lifecycle, persistence, model adapters, tracing, and non-bypassable stop behavior. The default `ocd_erp@1.0.0` skill owns structured formulation, ERP phase planning, action selection, treatment readiness, prompting, and OCD-specific response review.
 
 The system remembers what has already been discussed, waits until sufficient context has been collected before suggesting treatment, detects emotional instability before generation, and pauses the treatment flow when human intervention is needed.
 
@@ -21,28 +21,38 @@ The system remembers what has already been discussed, waits until sufficient con
 | Layered guardrails | Reviews drafts for reassurance, unsafe exposure, premature treatment, and medical or medication guidance. |
 | Human escalation | Stops critical-risk conversations and writes a durable alert, with optional webhook delivery to a clinician-owned endpoint. |
 | Auditable execution | Records state transitions, retrieval context, model artifacts, memory compaction, safety decisions, and alerts. |
+| Versioned clinical skill | Pins the skill ID, version, and bundle checksum in every session and turn record. |
+| Training trace export | Emits dialogue-only student context and privileged skill state for SFT or skill-conditioned OPSD. |
 
 ## System flow
 
 ```mermaid
 flowchart TD
-    A[Patient message] --> B[Build cumulative memory context]
-    B --> C[Mood and acute-risk assessment]
-    C -->|Critical risk| D[Stop treatment conversation]
-    D --> E[Queue clinician alert]
-    C -->|Safe to continue| F[Choose chat or clinical response move]
-    F --> G[Update formulation for clinical turns]
-    G --> H[Calculate treatment readiness]
-    H --> I[Transcript and knowledge retrieval]
-    I --> J[Draft and polish response]
-    J --> K[Premature-treatment buffer]
-    K --> L[Clinical safety review]
-    L --> M[Deterministic final guardrail]
-    M --> N[Return response]
-    N --> O[Persist dialogue, memory, state, trace, and alerts]
+    A[Patient message] --> B[Harness: memory and persistent stop check]
+    B --> C[Skill: risk interpretation]
+    C -->|Critical risk| D[Harness: stop and queue alert]
+    C -->|Continue| E[Skill: observe clinical state]
+    E --> F[Skill: structured action plan]
+    F --> G[Harness: authorize action]
+    G --> H[Harness: execute declared retrieval]
+    H --> I[Model adapter: Prompt / SFT / OPSD]
+    I --> J[Skill: OCD/ERP response review]
+    J --> K[Harness: final safety and commit]
+    K --> L[Versioned trace and distillation record]
 ```
 
-The ordering is intentional: risk assessment happens before treatment generation, while deterministic checks run both before and after the model-based safety review.
+The ordering is intentional: the model never authorizes its own treatment action, and a clinical skill cannot bypass persistent stop state, alert delivery, or the harness commit trace.
+
+## Harness and skill boundary
+
+| Harness control plane | Versioned clinical skill |
+| --- | --- |
+| Session, memory, persistence, model adapters, audit trace | State schema, phase graph, action ontology, prompts, clinical policy |
+| Persistent safety stop and alert execution | OCD-specific risk interpretation and response review |
+| Action authorization and final commit | Treatment-readiness decision and allowed clinical actions |
+| Retrieval/model execution | Evidence request and generation specification |
+
+Skills return typed `StateDelta`, `ActionPlan`, `EvidenceBundle`, and verdict objects. A skill is therefore executable policy rather than an unstructured prompt directory.
 
 ## Core design
 
@@ -99,16 +109,14 @@ Risk is separately classified as `low`, `moderate`, `high`, or `critical`. High 
 .
 ├── .agent/goal.md                  # Project-wide goals, invariants, and acceptance criteria
 ├── digital_doctor/
+│   ├── harness/                    # Contracts, runner, registry, adapters, safety, trace export
+│   ├── skills/ocd_erp/             # Versioned executable OCD/ERP clinical skill
 │   ├── core/
-│   │   ├── session.py              # End-to-end session orchestration
+│   │   ├── session.py              # Session resources and harness wiring
 │   │   ├── session_logic.py        # Routing, generation, and memory summarization
 │   │   └── session_store.py        # Raw turns, long-term memory, recall, and compaction
 │   ├── retrieval/                  # Transcript RAG and knowledge-tree retrieval
-│   ├── safety/
-│   │   ├── risk.py                 # Pre-generation mood and risk assessment
-│   │   ├── treatment.py            # Treatment readiness and deterministic output gates
-│   │   ├── review.py               # Final clinical safety review
-│   │   └── notifications.py        # Durable alert outbox and optional webhook delivery
+│   ├── safety/                      # Compatibility facades and platform notifications
 │   ├── services/                   # OpenAI client and optional helper-model service
 │   ├── tracking/milestones.py      # Case formulation and seven-phase ERP planner
 │   ├── tools/                      # Demo, knowledge build, and impact-report utilities
@@ -122,9 +130,8 @@ Risk is separately classified as `low`, `moderate`, `high`, or `critical`. High 
 
 For the complete product intent and safety invariants, see [`.agent/goal.md`](.agent/goal.md).
 
-The training stack is intentionally isolated from the runtime dependencies. See
-[`train/README_DIGITAL_DOCTOR.md`](train/README_DIGITAL_DOCTOR.md) for installation,
-dataset, fine-tuning, evaluation, and output-path details.
+The vendored LLaMA-Factory stack is isolated under `train/`. Local checkpoints,
+optimizer state, experiment outputs, and non-OCD datasets remain ignored.
 
 ## Quick start
 
@@ -166,6 +173,8 @@ RESET_SESSION_FILES=1
 USE_SAFETY_CHECK=1
 MEMORY_SUMMARY_THRESHOLD_CHARS=12000
 TREATMENT_MIN_CONTEXT_TURNS=3
+CLINICAL_SKILL_ID=ocd_erp
+CLINICAL_SKILL_VERSION=1.0.0
 ```
 
 ### 3. Prepare local data
@@ -198,6 +207,9 @@ python run.py --no-reset-session-files
 
 # Change the treatment-readiness threshold
 python run.py --treatment-min-context-turns 4
+
+# Pin an exact clinical skill version
+python run.py --skill-id ocd_erp --skill-version 1.0.0
 ```
 
 ## Web interface
@@ -235,6 +247,8 @@ Chat turns are serialized with a lock so memory and tracker updates cannot inter
 | `USE_SAFETY_CHECK` | `1` | Enable the model-based final review. Deterministic risk and treatment gates remain active independently. |
 | `MEMORY_SUMMARY_THRESHOLD_CHARS` | `12000` | Unsummarized character threshold for incremental memory compaction. |
 | `TREATMENT_MIN_CONTEXT_TURNS` | `3` | Minimum clinical turns before treatment can become eligible; code enforces a floor of 2. |
+| `CLINICAL_SKILL_ID` | `ocd_erp` | Primary skill pinned for the session. |
+| `CLINICAL_SKILL_VERSION` | latest registered | Optional exact skill version. |
 | `CLINICAL_ALERT_WEBHOOK_URL` | empty | Optional clinician-owned endpoint for high/critical-risk alerts. |
 | `SAFETY_CRISIS_RESOURCES` | built-in text | Region-specific crisis-resource override. |
 | `TRANSCRIPT_PATH` | `data/transcripts/101KI_deid.json` | Reference transcript input. |
@@ -265,6 +279,21 @@ API snapshot also expose `milestone_health.status`: `not_run` before the first c
 turn, `healthy` when phase output and ordering invariants are valid, and `degraded`
 when model output is malformed/incomplete or the phase state is inconsistent.
 
+Every completed turn also emits a `distillation_record` containing dialogue-only
+student input, privileged skill context, action/state supervision, the reviewed
+teacher response, and the pinned harness/skill identity. Export it without modifying
+the raw runtime trace:
+
+```bash
+python -m digital_doctor.tools.export_skill_traces \
+  runtime/logs/interactive/milestone_trace.jsonl train/output/opsd.jsonl \
+  --format opsd
+
+python -m digital_doctor.tools.export_skill_traces \
+  runtime/logs/interactive/milestone_trace.jsonl train/output/sft.jsonl \
+  --format sft
+```
+
 ## Testing
 
 Run the complete test suite:
@@ -283,6 +312,8 @@ The suite covers:
 - durable alert creation and critical-state restoration;
 - fail-closed behavior when the safety model is unavailable;
 - structured formulation and phase-planner progression.
+- skill registration/version pinning and bundle checksums;
+- harness action authorization and distillation trace export.
 
 To perform a syntax-only check:
 
