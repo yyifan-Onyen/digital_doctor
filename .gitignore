@@ -1,0 +1,42 @@
+.DS_Store
+.env
+.venv/
+__pycache__/
+*.py[cod]
+*.log
+digital_doctor/**/__pycache__/
+
+# Integrated LLaMA-Factory training workspace
+train/.env*
+train/saves/
+train/output/
+train/wandb/
+train/swanlog/
+train/**/__pycache__/
+train/**/*.py[cod]
+
+# Local data
+data/*
+!data/.gitkeep
+
+runtime/cache/
+runtime/logs/
+runtime/evals/
+report/
+mile_res/
+pageindex/__pycache__/
+
+# Private research inputs kept outside source control
+.agent/res/
+
+# Vendored LLaMA-Factory runtime artifacts and local datasets
+train/LLaMA-Factory/.env*
+train/LLaMA-Factory/saves/
+train/LLaMA-Factory/output/
+train/LLaMA-Factory/wandb/
+train/LLaMA-Factory/swanlog/
+train/LLaMA-Factory/data/*
+!train/LLaMA-Factory/data/dataset_info.json
+train/LLaMA-Factory/*.csv
+train/LLaMA-Factory/*_score.json
+train/LLaMA-Factory/dev/test_rag.json

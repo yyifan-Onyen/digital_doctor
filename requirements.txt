@@ -1,0 +1,11 @@
+openai>=1.66.0
+python-dotenv>=1.0.1
+litellm==1.82.0
+pymupdf==1.26.4
+PyPDF2==3.0.1
+pyyaml==6.0.2
+tqdm>=4.66.0
+fastapi>=0.115.0
+pydantic>=2.9.0
+uvicorn>=0.30.0
+python-docx>=1.1.2

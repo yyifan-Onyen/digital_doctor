@@ -1,0 +1,874 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Digital Doctor · OCD ERP</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #E9EEEE;
+      --surface: #FBFCFC;
+      --surface-2: #F2F5F5;
+      --ink: #1B2A2C;
+      --ink-soft: #56696B;
+      --ink-faint: #8A9A9B;
+      --line: #D6DEDE;
+      --line-soft: #E4EAEA;
+      --primary: #0E8C7F;
+      --primary-deep: #0A6E64;
+      --primary-tint: #E0F0ED;
+      --done: #4C9A6A;
+      --warn: #BE8218;
+      --alert: #C25D6B;
+      --glow: rgba(14, 140, 127, 0.20);
+      --shadow: 0 1px 2px rgba(20, 40, 42, 0.04), 0 10px 30px rgba(20, 40, 42, 0.06);
+      --radius: 14px;
+      --rail-w: 56px;
+      --node: 18px;
+      --serif: "Fraunces", Georgia, "Times New Roman", serif;
+      --sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      --mono: "IBM Plex Mono", ui-monospace, "SF Mono", Menlo, monospace;
+    }
+
+    * { box-sizing: border-box; }
+
+    html, body {
+      height: 100%;
+      margin: 0;
+    }
+
+    body {
+      font-family: var(--sans);
+      color: var(--ink);
+      background: var(--bg);
+      background-image:
+        radial-gradient(1200px 600px at 12% -10%, #F0F5F4 0%, transparent 60%),
+        radial-gradient(900px 500px at 100% 0%, #EAF1F0 0%, transparent 55%);
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+      overflow: hidden;
+    }
+
+    .app {
+      display: grid;
+      grid-template-columns: 380px minmax(0, 1fr);
+      gap: 20px;
+      height: 100vh;
+      max-width: 1320px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    /* ---------- Left: therapy path ---------- */
+
+    .panel {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      display: flex;
+      flex-direction: column;
+      min-height: 0;
+      overflow: hidden;
+    }
+
+    .panel-head {
+      padding: 22px 22px 18px;
+      border-bottom: 1px solid var(--line-soft);
+    }
+
+    .eyebrow {
+      font-family: var(--mono);
+      font-size: 11px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--primary-deep);
+      margin: 0 0 8px;
+    }
+
+    .panel-title {
+      font-family: var(--serif);
+      font-optical-sizing: auto;
+      font-weight: 500;
+      font-size: 25px;
+      line-height: 1.1;
+      letter-spacing: -0.01em;
+      margin: 0 0 4px;
+    }
+
+    .goal {
+      font-size: 12.5px;
+      color: var(--ink-soft);
+      line-height: 1.45;
+      margin: 10px 0 0;
+    }
+
+    .coverage {
+      display: flex;
+      align-items: baseline;
+      gap: 8px;
+      margin-top: 16px;
+    }
+    .coverage .num {
+      font-family: var(--serif);
+      font-weight: 600;
+      font-size: 30px;
+      line-height: 1;
+      color: var(--primary-deep);
+      font-variant-numeric: tabular-nums;
+    }
+    .coverage .label {
+      font-family: var(--mono);
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--ink-faint);
+    }
+
+    .spine {
+      position: relative;
+      padding: 20px 22px 24px;
+      overflow-y: auto;
+      flex: 1;
+      min-height: 0;
+    }
+
+    /* continuous track + progress fill (the signature) */
+    .spine-track, .spine-fill {
+      position: absolute;
+      left: calc(22px + (var(--rail-w) / 2) - 1px);
+      width: 2px;
+      border-radius: 2px;
+    }
+    .spine-track { background: var(--line); }
+    .spine-fill {
+      background: linear-gradient(180deg, var(--done), var(--primary));
+      height: 0;
+      transition: height 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    .phase {
+      position: relative;
+      display: grid;
+      grid-template-columns: var(--rail-w) 1fr;
+      align-items: start;
+      padding-bottom: 22px;
+    }
+    .phase:last-child { padding-bottom: 0; }
+
+    .rail { display: flex; justify-content: center; padding-top: 2px; }
+
+    .node {
+      position: relative;
+      width: var(--node);
+      height: var(--node);
+      border-radius: 50%;
+      background: var(--surface);
+      border: 2px solid var(--line);
+      z-index: 2;
+      flex: none;
+      transition: border-color 0.3s, background 0.3s, box-shadow 0.3s;
+    }
+    .node::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      display: grid;
+      place-items: center;
+      font-size: 10px;
+      color: #fff;
+    }
+
+    .phase[data-status="completed"] .node {
+      background: var(--done);
+      border-color: var(--done);
+    }
+    .phase[data-status="completed"] .node::after {
+      content: "✓";
+      font-weight: 700;
+      line-height: 14px;
+    }
+    .phase[data-status="active"] .node {
+      border-color: var(--primary);
+      background: var(--primary);
+      box-shadow: 0 0 0 5px var(--glow);
+      animation: breathe 2.6s ease-in-out infinite;
+    }
+    .phase[data-status="blocked"] .node { border-color: var(--warn); background: var(--warn); }
+    .phase[data-status="contraindicated"] .node { border-color: var(--alert); background: var(--alert); }
+
+    @keyframes breathe {
+      0%, 100% { box-shadow: 0 0 0 4px var(--glow); }
+      50% { box-shadow: 0 0 0 8px rgba(14, 140, 127, 0.10); }
+    }
+
+    .phase-body { padding-top: 0; }
+
+    .phase-kicker {
+      font-family: var(--mono);
+      font-size: 10.5px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--ink-faint);
+      margin: 0 0 3px;
+    }
+    .phase[data-status="active"] .phase-kicker { color: var(--primary-deep); }
+    .phase[data-status="blocked"] .phase-kicker { color: var(--warn); }
+    .phase[data-status="contraindicated"] .phase-kicker { color: var(--alert); }
+
+    .phase-title {
+      font-size: 14.5px;
+      font-weight: 600;
+      line-height: 1.25;
+      margin: 0;
+      color: var(--ink);
+    }
+    .phase[data-status="pending"] .phase-title { color: var(--ink-faint); font-weight: 500; }
+
+    .phase-note {
+      font-size: 12px;
+      line-height: 1.45;
+      color: var(--ink-soft);
+      margin: 6px 0 0;
+    }
+    .phase-flag {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      margin-top: 7px;
+      padding: 3px 9px;
+      border-radius: 999px;
+      font-family: var(--mono);
+      font-size: 10.5px;
+      letter-spacing: 0.04em;
+    }
+    .phase-flag.warn { background: #F7EED9; color: var(--warn); }
+    .phase-flag.alert { background: #F6E1E4; color: var(--alert); }
+
+    /* ---------- Formulation ---------- */
+    .formulation {
+      border-top: 1px solid var(--line-soft);
+      padding: 16px 22px 20px;
+    }
+    .formulation summary {
+      list-style: none;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+    }
+    .formulation summary::-webkit-details-marker { display: none; }
+    .formulation-label {
+      font-family: var(--mono);
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--ink-soft);
+    }
+    .formulation-count {
+      font-family: var(--mono);
+      font-size: 11px;
+      color: var(--primary-deep);
+    }
+    .chev { transition: transform 0.25s; color: var(--ink-faint); }
+    .formulation[open] .chev { transform: rotate(180deg); }
+    .fields { margin-top: 14px; display: grid; gap: 12px; }
+    .field-empty { font-size: 12px; color: var(--ink-faint); font-style: italic; }
+    .field-label {
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--ink-soft);
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      margin: 0 0 3px;
+    }
+    .field-value { font-size: 13px; line-height: 1.4; color: var(--ink); margin: 0; }
+    .meter {
+      margin-top: 6px;
+      height: 3px;
+      border-radius: 3px;
+      background: var(--line-soft);
+      overflow: hidden;
+    }
+    .meter i { display: block; height: 100%; background: var(--primary); border-radius: 3px; }
+
+    /* ---------- Right: chat ---------- */
+    .chat { min-height: 0; }
+
+    .chat-head {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 16px 22px;
+      border-bottom: 1px solid var(--line-soft);
+    }
+    .mark {
+      width: 40px; height: 40px;
+      border-radius: 12px;
+      background: radial-gradient(circle at 35% 30%, var(--primary), var(--primary-deep));
+      display: grid; place-items: center;
+      flex: none;
+      box-shadow: 0 4px 12px var(--glow);
+    }
+    .pulse { width: 12px; height: 12px; border-radius: 50%; background: #fff; position: relative; }
+    .pulse::before {
+      content: ""; position: absolute; inset: -6px; border-radius: 50%;
+      border: 2px solid rgba(255,255,255,0.5); animation: ring 2.4s ease-out infinite;
+    }
+    @keyframes ring {
+      0% { transform: scale(0.6); opacity: 0.9; }
+      100% { transform: scale(1.5); opacity: 0; }
+    }
+    .chat-head h1 {
+      font-family: var(--serif);
+      font-weight: 500;
+      font-size: 18px;
+      margin: 0;
+      letter-spacing: -0.01em;
+    }
+    .chat-head p { margin: 1px 0 0; font-size: 12px; color: var(--ink-soft); }
+    .chat-head .spacer { flex: 1; }
+
+    .btn {
+      font-family: var(--sans);
+      font-size: 12.5px;
+      font-weight: 500;
+      color: var(--ink-soft);
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: 9px;
+      padding: 8px 13px;
+      cursor: pointer;
+      transition: background 0.2s, color 0.2s, border-color 0.2s;
+    }
+    .btn:hover { background: var(--surface-2); color: var(--ink); }
+    .btn:focus-visible { outline: 2px solid var(--primary); outline-offset: 2px; }
+
+    .stream {
+      flex: 1;
+      min-height: 0;
+      overflow-y: auto;
+      padding: 26px 22px 8px;
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+      scroll-behavior: smooth;
+    }
+
+    .greeting {
+      max-width: min(460px, 100%);
+      margin: auto;
+      text-align: center;
+      color: var(--ink-soft);
+      padding: 30px 4px;
+    }
+    .greeting .g-title {
+      font-family: var(--serif);
+      font-size: 22px;
+      font-weight: 500;
+      color: var(--ink);
+      margin: 0 0 8px;
+    }
+    .greeting p { font-size: 13.5px; line-height: 1.55; margin: 0; }
+
+    .msg { display: flex; gap: 12px; max-width: 76%; animation: rise 0.35s cubic-bezier(0.22,1,0.36,1); }
+    .msg.doctor { align-self: flex-start; }
+    .msg.patient { align-self: flex-end; flex-direction: row-reverse; }
+
+    @keyframes rise { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+
+    .avatar {
+      width: 30px; height: 30px; border-radius: 9px; flex: none;
+      display: grid; place-items: center;
+      font-family: var(--serif); font-size: 13px; font-weight: 600; margin-top: 2px;
+    }
+    .doctor .avatar { background: var(--primary-tint); color: var(--primary-deep); }
+    .patient .avatar { background: var(--surface-2); color: var(--ink-soft); }
+
+    .bubble {
+      padding: 12px 15px;
+      border-radius: 14px;
+      font-size: 14px;
+      line-height: 1.55;
+      white-space: pre-wrap;
+      word-wrap: break-word;
+    }
+    .doctor .bubble {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-top-left-radius: 5px;
+      color: var(--ink);
+    }
+    .patient .bubble {
+      background: var(--primary);
+      color: #fff;
+      border-top-right-radius: 5px;
+    }
+
+    .typing .bubble { display: inline-flex; gap: 4px; align-items: center; padding: 14px 16px; }
+    .dot {
+      width: 6px; height: 6px; border-radius: 50%; background: var(--ink-faint);
+      animation: blink 1.3s infinite both;
+    }
+    .dot:nth-child(2) { animation-delay: 0.18s; }
+    .dot:nth-child(3) { animation-delay: 0.36s; }
+    @keyframes blink { 0%, 60%, 100% { opacity: 0.25; } 30% { opacity: 1; } }
+
+    .toast {
+      align-self: center;
+      font-family: var(--mono);
+      font-size: 11px;
+      letter-spacing: 0.03em;
+      color: var(--primary-deep);
+      background: var(--primary-tint);
+      padding: 5px 12px;
+      border-radius: 999px;
+      animation: rise 0.35s;
+    }
+
+    /* ---------- Composer ---------- */
+    .composer {
+      border-top: 1px solid var(--line-soft);
+      padding: 14px 18px 18px;
+    }
+    .composer-inner {
+      display: flex;
+      align-items: flex-end;
+      gap: 10px;
+      background: var(--surface-2);
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 8px 8px 8px 14px;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+    .composer-inner:focus-within {
+      border-color: var(--primary);
+      box-shadow: 0 0 0 4px var(--glow);
+    }
+    textarea {
+      flex: 1;
+      border: none;
+      background: transparent;
+      resize: none;
+      font-family: var(--sans);
+      font-size: 14px;
+      line-height: 1.5;
+      color: var(--ink);
+      max-height: 140px;
+      padding: 6px 0;
+    }
+    textarea:focus { outline: none; }
+    textarea::placeholder { color: var(--ink-faint); }
+
+    .send {
+      flex: none;
+      width: 38px; height: 38px;
+      border-radius: 10px;
+      border: none;
+      background: var(--primary);
+      color: #fff;
+      cursor: pointer;
+      display: grid; place-items: center;
+      transition: background 0.2s, transform 0.1s;
+    }
+    .send:hover:not(:disabled) { background: var(--primary-deep); }
+    .send:active:not(:disabled) { transform: scale(0.94); }
+    .send:disabled { background: var(--line); cursor: not-allowed; }
+    .send:focus-visible { outline: 2px solid var(--primary-deep); outline-offset: 2px; }
+
+    .disclaimer {
+      text-align: center;
+      font-size: 11px;
+      color: var(--ink-faint);
+      margin: 10px 0 0;
+    }
+
+    /* ---------- Responsive ---------- */
+    .path-toggle { display: none; }
+
+    @media (max-width: 900px) {
+      .app {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto 1fr;
+        height: 100dvh;
+        gap: 12px;
+        padding: 12px;
+      }
+      .panel.path { max-height: 46vh; }
+      .panel.path.collapsed .spine,
+      .panel.path.collapsed .formulation { display: none; }
+      .panel.path.collapsed { max-height: none; }
+      .path-toggle {
+        display: inline-flex;
+        margin-left: auto;
+        background: none;
+        border: none;
+        cursor: pointer;
+        color: var(--ink-soft);
+      }
+      .msg { max-width: 88%; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.001ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.001ms !important;
+        scroll-behavior: auto !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="app">
+    <!-- LEFT: therapy path -->
+    <aside class="panel path" id="pathPanel">
+      <div class="panel-head">
+        <p class="eyebrow">Treatment path · ERP</p>
+        <div style="display:flex; align-items:flex-start;">
+          <h2 class="panel-title">Session milestones</h2>
+          <button class="path-toggle" id="pathToggle" aria-label="Toggle path panel" aria-expanded="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+          </button>
+        </div>
+        <p class="goal" id="goal"></p>
+        <div class="coverage">
+          <span class="num" id="coverageNum">0/7</span>
+          <span class="label">phases complete</span>
+        </div>
+      </div>
+
+      <div class="spine" id="spine">
+        <div class="spine-track" id="spineTrack"></div>
+        <div class="spine-fill" id="spineFill"></div>
+        <!-- phases injected here -->
+      </div>
+
+      <details class="formulation" id="formulation">
+        <summary>
+          <span class="formulation-label">Case formulation</span>
+          <span style="display:flex; align-items:center; gap:10px;">
+            <span class="formulation-count" id="formCount">0/11</span>
+            <svg class="chev" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+          </span>
+        </summary>
+        <div class="fields" id="fields"></div>
+      </details>
+    </aside>
+
+    <!-- RIGHT: chat -->
+    <section class="panel chat">
+      <header class="chat-head">
+        <div class="mark"><span class="pulse"></span></div>
+        <div>
+          <h1>Digital Doctor</h1>
+          <p>OCD · Exposure &amp; Response Prevention</p>
+        </div>
+        <span class="spacer"></span>
+        <button class="btn" id="resetBtn">New session</button>
+      </header>
+
+      <div class="stream" id="stream" aria-live="polite"></div>
+
+      <div class="composer">
+        <div class="composer-inner">
+          <textarea id="input" rows="1" placeholder="Tell the doctor what's on your mind…" aria-label="Message"></textarea>
+          <button class="send" id="sendBtn" aria-label="Send message">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg>
+          </button>
+        </div>
+        <p class="disclaimer">Research prototype — not medical advice.</p>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    // Fallback so the page renders standalone (e.g. opened as a file) before the
+    // FastAPI backend is wired up. Replaced by live /api data once available.
+    const SAMPLE_SNAPSHOT = {
+      session_goal: "Follow ERP phases consistently and progress through unresolved targets.",
+      coverage: "2/7",
+      phases: [
+        { id: 1, title: "Assessment", status: "completed", last_evidence: "" },
+        { id: 2, title: "Formulation", status: "completed", last_evidence: "" },
+        { id: 3, title: "ERP Buy-In", status: "active", last_evidence: "Building rationale for approaching uncertainty rather than reducing it." },
+        { id: 4, title: "Exposure Hierarchy", status: "pending" },
+        { id: 5, title: "Exposure & Response Prevention", status: "pending" },
+        { id: 6, title: "Homework Review & Generalization", status: "pending" },
+        { id: 7, title: "Relapse Prevention", status: "pending" }
+      ],
+      formulation: {
+        filled_count: 3, total_fields: 11,
+        fields: [
+          { field: "obsession", label: "Primary obsession", value: "Fear of contamination from door handles", confidence: 0.82 },
+          { field: "trigger", label: "Common trigger", value: "Touching shared surfaces in public", confidence: 0.74 },
+          { field: "compulsion", label: "Compulsion or ritual", value: "Repeated handwashing until it 'feels right'", confidence: 0.9 },
+        ]
+      }
+    };
+
+    const PHASE_KICKERS = {
+      completed: "Complete", active: "Current focus",
+      pending: "Upcoming", blocked: "Blocked", contraindicated: "Needs human review"
+    };
+
+    const els = {
+      goal: document.getElementById("goal"),
+      coverageNum: document.getElementById("coverageNum"),
+      spine: document.getElementById("spine"),
+      spineFill: document.getElementById("spineFill"),
+      spineTrack: document.getElementById("spineTrack"),
+      formCount: document.getElementById("formCount"),
+      fields: document.getElementById("fields"),
+      stream: document.getElementById("stream"),
+      input: document.getElementById("input"),
+      sendBtn: document.getElementById("sendBtn"),
+      resetBtn: document.getElementById("resetBtn"),
+      pathPanel: document.getElementById("pathPanel"),
+      pathToggle: document.getElementById("pathToggle"),
+    };
+
+    let backendOk = true;
+    let prevCompleted = new Set();
+    let busy = false;
+
+    function esc(s) {
+      return String(s == null ? "" : s).replace(/[&<>"']/g, c =>
+        ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+    }
+
+    function renderSnapshot(snap, animate) {
+      if (!snap) return;
+      els.goal.textContent = snap.session_goal || "";
+      const phases = snap.phases || [];
+      const done = phases.filter(p => p.status === "completed").length;
+      els.coverageNum.textContent = `${done}/${phases.length}`;
+
+      // phases
+      const nodes = els.spine.querySelectorAll(".phase");
+      nodes.forEach(n => n.remove());
+      const frag = document.createDocumentFragment();
+      phases.forEach((p, i) => {
+        const row = document.createElement("div");
+        row.className = "phase";
+        row.dataset.status = p.status || "pending";
+        row.dataset.id = p.id;
+        const kicker = PHASE_KICKERS[p.status] || "Upcoming";
+        let extra = "";
+        if (p.status === "active" && p.last_evidence) {
+          extra = `<p class="phase-note">${esc(p.last_evidence)}</p>`;
+        } else if (p.status === "blocked" && p.blocked_reason) {
+          extra = `<span class="phase-flag warn">⚑ ${esc(p.blocked_reason)}</span>`;
+        } else if (p.status === "contraindicated" && p.contraindication_reason) {
+          extra = `<span class="phase-flag alert">▲ ${esc(p.contraindication_reason)}</span>`;
+        }
+        row.innerHTML = `
+          <div class="rail"><span class="node"></span></div>
+          <div class="phase-body">
+            <p class="phase-kicker">${String(i + 1).padStart(2, "0")} · ${kicker}</p>
+            <h3 class="phase-title">${esc(p.title)}</h3>
+            ${extra}
+          </div>`;
+        frag.appendChild(row);
+      });
+      els.spine.appendChild(frag);
+      positionTrack(phases, animate);
+
+      // flash newly completed
+      if (animate) {
+        const nowCompleted = new Set(phases.filter(p => p.status === "completed").map(p => p.id));
+        phases.forEach(p => {
+          if (p.status === "completed" && !prevCompleted.has(p.id)) {
+            toast(`Milestone reached · ${p.title}`);
+          }
+        });
+        prevCompleted = nowCompleted;
+      } else {
+        prevCompleted = new Set(phases.filter(p => p.status === "completed").map(p => p.id));
+      }
+
+      // formulation
+      const f = snap.formulation || { filled_count: 0, total_fields: 11, fields: [] };
+      els.formCount.textContent = `${f.filled_count}/${f.total_fields}`;
+      const filled = (f.fields || []).filter(x => x.value && x.value.trim());
+      if (!filled.length) {
+        els.fields.innerHTML = `<p class="field-empty">No structured case data captured yet.</p>`;
+      } else {
+        els.fields.innerHTML = filled.map(x => `
+          <div class="field">
+            <p class="field-label">${esc(x.label)}</p>
+            <p class="field-value">${esc(x.value)}</p>
+            <div class="meter"><i style="width:${Math.round((x.confidence || 0) * 100)}%"></i></div>
+          </div>`).join("");
+      }
+    }
+
+    // Draw the progress fill from the first node to the active (or last completed) node.
+    function positionTrack(phases, animate) {
+      requestAnimationFrame(() => {
+        const rows = [...els.spine.querySelectorAll(".phase")];
+        if (!rows.length) { els.spineFill.style.height = "0px"; return; }
+        const nodeOf = r => r.querySelector(".node");
+        const top = rows[0].offsetTop + nodeOf(rows[0]).offsetTop + nodeOf(rows[0]).offsetHeight / 2;
+        const last = rows[rows.length - 1];
+        const bottom = last.offsetTop + nodeOf(last).offsetTop + nodeOf(last).offsetHeight / 2;
+        els.spineTrack.style.top = top + "px";
+        els.spineTrack.style.height = (bottom - top) + "px";
+
+        // target = center of the active phase, else last completed, else top
+        let target = rows.find(r => r.dataset.status === "active");
+        if (!target) {
+          const completed = rows.filter(r => r.dataset.status === "completed");
+          target = completed[completed.length - 1];
+        }
+        let fillH = 0;
+        if (target) {
+          const c = target.offsetTop + nodeOf(target).offsetTop + nodeOf(target).offsetHeight / 2;
+          fillH = c - top;
+        }
+        els.spineFill.style.top = top + "px";
+        if (!animate) els.spineFill.style.transition = "none";
+        els.spineFill.style.height = Math.max(0, fillH) + "px";
+        if (!animate) requestAnimationFrame(() => els.spineFill.style.transition = "");
+      });
+    }
+
+    // ---------- chat ----------
+    function clearGreeting() {
+      const g = els.stream.querySelector(".greeting");
+      if (g) g.remove();
+    }
+
+    function showGreeting() {
+      els.stream.innerHTML = `
+        <div class="greeting">
+          <p class="g-title">A steady place to start.</p>
+          <p>Share whatever is pulling at you right now — a worry, an urge, a ritual you're stuck in. The doctor works through the ERP path on the left, one step at a time.</p>
+        </div>`;
+    }
+
+    function addMessage(role, text) {
+      clearGreeting();
+      const msg = document.createElement("div");
+      msg.className = `msg ${role}`;
+      const initial = role === "doctor" ? "Dr" : "You";
+      msg.innerHTML = `<div class="avatar">${initial === "Dr" ? "℞" : "•"}</div><div class="bubble">${esc(text)}</div>`;
+      els.stream.appendChild(msg);
+      scrollDown();
+      return msg;
+    }
+
+    function addTyping() {
+      const msg = document.createElement("div");
+      msg.className = "msg doctor typing";
+      msg.innerHTML = `<div class="avatar">℞</div><div class="bubble"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>`;
+      els.stream.appendChild(msg);
+      scrollDown();
+      return msg;
+    }
+
+    function toast(text) {
+      const t = document.createElement("div");
+      t.className = "toast";
+      t.textContent = text;
+      els.stream.appendChild(t);
+      scrollDown();
+    }
+
+    function scrollDown() { els.stream.scrollTop = els.stream.scrollHeight; }
+
+    async function loadState() {
+      try {
+        const r = await fetch("/api/state");
+        if (!r.ok) throw new Error("bad status");
+        const data = await r.json();
+        renderSnapshot(data.snapshot, false);
+      } catch (e) {
+        backendOk = false;
+        renderSnapshot(SAMPLE_SNAPSHOT, false);
+      }
+    }
+
+    async function send() {
+      const text = els.input.value.trim();
+      if (!text || busy) return;
+      busy = true;
+      els.sendBtn.disabled = true;
+      addMessage("patient", text);
+      els.input.value = "";
+      autoGrow();
+
+      if (!backendOk) {
+        const typing = addTyping();
+        setTimeout(() => {
+          typing.remove();
+          addMessage("doctor", "Backend isn't connected yet — start the server with `uvicorn digital_doctor.web.server:app` and reload to talk to the real agent.");
+          busy = false; els.sendBtn.disabled = false;
+        }, 500);
+        return;
+      }
+
+      const typing = addTyping();
+      try {
+        const r = await fetch("/api/chat", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ message: text })
+        });
+        if (!r.ok) throw new Error("bad status");
+        const data = await r.json();
+        typing.remove();
+        addMessage("doctor", data.reply || "…");
+        renderSnapshot(data.snapshot, true);
+      } catch (e) {
+        typing.remove();
+        addMessage("doctor", "Something went wrong reaching the agent. Please try again.");
+      } finally {
+        busy = false;
+        els.sendBtn.disabled = false;
+        els.input.focus();
+      }
+    }
+
+    async function reset() {
+      if (busy) return;
+      try {
+        const r = await fetch("/api/reset", { method: "POST" });
+        const data = await r.json();
+        renderSnapshot(data.snapshot, false);
+      } catch (e) { /* offline: just clear */ }
+      showGreeting();
+      els.input.focus();
+    }
+
+    function autoGrow() {
+      els.input.style.height = "auto";
+      els.input.style.height = Math.min(els.input.scrollHeight, 140) + "px";
+    }
+
+    // ---------- events ----------
+    els.sendBtn.addEventListener("click", send);
+    els.resetBtn.addEventListener("click", reset);
+    els.input.addEventListener("input", autoGrow);
+    els.input.addEventListener("keydown", e => {
+      if (e.key === "Enter" && !e.shiftKey) { e.preventDefault(); send(); }
+    });
+    els.pathToggle.addEventListener("click", () => {
+      const collapsed = els.pathPanel.classList.toggle("collapsed");
+      els.pathToggle.setAttribute("aria-expanded", String(!collapsed));
+    });
+    window.addEventListener("resize", () => {
+      const snapshotRows = els.spine.querySelectorAll(".phase");
+      if (snapshotRows.length) positionTrack([...snapshotRows], false);
+    });
+
+    // ---------- boot ----------
+    showGreeting();
+    loadState();
+  </script>
+</body>
+</html>
